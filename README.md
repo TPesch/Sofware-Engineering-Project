@@ -28,7 +28,7 @@ B) Ensure that each team member has applied the following topics taught during l
      _A Use Case Diagram_
 
    - **Activity Diagram:**
-     ![Activity_Diagram](link_to_activity_diagram)
+     ![Activity_Diagram](https://i.imgur.com/pdTBmTh.png)
      _An Activity Diagram_
 
 3. **Requirements:**  
