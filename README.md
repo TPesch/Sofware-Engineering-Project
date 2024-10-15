@@ -38,7 +38,7 @@ Each team member must apply the following topics taught in the course to the pro
 
 ---
 
-### 3. **Mobile App Requirements:**
+### 3.& 4. **Mobile App Requirements:** & **System Analysis**
 The mobile app must implement the following features:
 
 #### **Google OAuth 2.0 for Authentication**
@@ -59,9 +59,6 @@ The mobile app must implement the following features:
    - Each user will have access only to their own cocktails, ensuring privacy and data integrity.
 
 ---
-
-### 4. **System Analysis**
-   Provide a detailed analysis of your system, covering key features and functionality.
 
 ### 5. **Domain-Driven Design (DDD)**
    - Invent additional domains if necessary, and document them with strategic design mappings.
