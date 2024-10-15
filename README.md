@@ -1,8 +1,4 @@
-Here's a properly formatted version of your project overview for a `README.md` file:
-
----
-
-# Software Engineering Project
+Software Engineering Project
 
 This is a university project focused on applying various software engineering concepts to a small pet project. The project includes coding, documentation, and the use of several key development tools and techniques.
 
