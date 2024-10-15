@@ -20,7 +20,7 @@ B) Ensure that each team member has applied the following topics taught during l
    Include at least **3 different diagrams**. These can be artificially enhanced as per Domain-Driven Design (DDD). Export the images for submission.
 
    - **Class Diagram:**
-     ![Class_Diagram](link_to_class_diagram)
+     ![Class_Diagram](https://i.imgur.com/1fJUkjS.png)
      _A Class Diagram_
 
    - **Use Case Diagram:**
