@@ -13,13 +13,17 @@ Software Engineering Project For Uni
 2. **UML** at least **3** good different diagrams. "good" means you can pump it up artificially as written in DDD. You have 10 million $ from me! Please export the pics. I can not install all the tools to view them!
 
 ##Class Diagram
+
    
 ![Class_Diagram]()
 _A class diagram_
 
+
 ##Use Case Diagram
-![Use_Case_Diagram](https://drive.google.com/u/0/drive-viewer/AKGpihb_DsqtVvXL70w36JO_LSVfcV28SFAeUNAGnTwW1yMY6gALgOlOECXdxxzdCdeY2OjtG9CwUHXY5NUElkc7StfmGDNoHNfmUHw=s1600-rw-v1)
+
+![Use_Case_Diagram]([https://drive.google.com/u/0/drive-viewer/AKGpihb_DsqtVvXL70w36JO_LSVfcV28SFAeUNAGnTwW1yMY6gALgOlOECXdxxzdCdeY2OjtG9CwUHXY5NUElkc7StfmGDNoHNfmUHw=s1600-rw-v1](https://i.imgur.com/mlQ6zBV.png))
 _A Use Case Diagram_
+
 
 ##Activity Diagram
 
