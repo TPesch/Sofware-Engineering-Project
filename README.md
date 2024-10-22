@@ -14,6 +14,8 @@ This is a university project focused on applying various software engineering co
 ### A) Project Description
 A small pet project aimed at getting back into coding. The code can be relatively simple (e.g., a basic game with console output). Documentation should be brief but informative.
 
+## Most of my Adult life  I have been working in the service industry. Specifically I've been working behind A Bar, and after all these years i can honestly say the hardest thing for new bartenders (Besides keeping the bar clean) is learning and memorizing the cocktails. With every new Restaurant/Bar or New hire, came a bunch of loose papers with scribbles on it to be shoved here and there in the bar. I want to be able to have all my recipes in one place, to be able to keep my bar clean, and to be able to give all the new hires the recipes without the fear of them loosing the Recipe Book in a accident.
+
 ### B) Key Topics Covered
 Each team member must apply the following topics taught in the course to the project.
 
@@ -38,7 +40,7 @@ Each team member must apply the following topics taught in the course to the pro
 
 ---
 
-### 3. & 4. **Mobile App Requirements & System Analysis**
+### 3.**Mobile App Requirements **
 
 - The mobile app **MUST** implement the following features:
 
@@ -65,6 +67,8 @@ Each team member must apply the following topics taught in the course to the pro
 
 
 ---
+### 4. ** System Analysis **
+  - 10 Points from Miro analyse  
 
 ### 5. **Domain-Driven Design (DDD)**
    - Invent additional domains if necessary, and document them with strategic design mappings.
