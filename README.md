@@ -38,25 +38,31 @@ Each team member must apply the following topics taught in the course to the pro
 
 ---
 
-### 3.& 4. **Mobile App Requirements:** & **System Analysis**
-The mobile app must implement the following features:
+### 3. & 4. **Mobile App Requirements & System Analysis**
 
-#### **Google OAuth 2.0 for Authentication**
-   - Users must log in using **Google OAuth 2.0** for secure authentication.
+- The mobile app **MUST** implement the following features:
 
-#### **Google Sheets API for Cocktail Data Management (Per User)**
-   - Each user will have their own individual **Google Sheet** to store and manage cocktail details (name, ingredients, instructions).
-   - CRUD operations will be implemented, synchronized with the user’s **Google Sheet**.
+   1. ##**Google OAuth 2.0 for Authentication**:
+      - Users **MUST** log in using **Google OAuth 2.0** for secure authentication.
+      - The authentication **MUST** follow Google's best practices for OAuth security.
+   
+   2. ##**Google Sheets API for Cocktail Data Management (Per User)**:
+      - Each user **MUST** have their own individual **Google Sheet** to store and manage cocktail details such as the name, ingredients, and instructions.
+      - The app **MUST** implement CRUD operations (Create, Read, Update, Delete) synchronized with the user's Google Sheet.
+      - The data stored in the Google Sheet **CANNOT** be accessible to other users, ensuring per-account data privacy.
 
-#### **Built Using Flutter**
-   - The app will be developed using **Flutter** for Android.
+   3. ##**Cocktail Details Management**:
+      - Authenticated users **MUST** be able to add, edit, delete, and view cocktail details.
+      - Data **MUST** be securely stored in the Google Sheet and **SHOULD** be updated in real-time when CRUD operations are performed.
 
-#### **Cocktail Details Management**
-   - Authenticated users can add, edit, delete, and view cocktail details.
-   - Data is private and stored securely in each user’s Google Sheet.
+   4. ##**Per-Account Data Segregation**:
+      - Each user **SHOULD** have access only to their own cocktail data, ensuring privacy and data integrity.
+      - Data **MUST** be private, and one user **CANNOT** access another user's data under any circumstance.
 
-#### **Per-Account Data Segregation**
-   - Each user will have access only to their own cocktails, ensuring privacy and data integrity.
+   5. ##**Mobile App Development Using Flutter**:
+      - The app **MUST** be developed using **Flutter** and **MUST** be built to run on Android devices.
+      - The use of Flutter widgets and best practices **SHOULD** be implemented for smooth and responsive UI.
+
 
 ---
 
