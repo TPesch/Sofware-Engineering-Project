@@ -45,24 +45,24 @@ Each team member must apply the following topics taught in the course to the pro
 
 - The mobile app **MUST** implement the following features:
 
-   ##1. **Google OAuth 2.0 for Authentication**:
+   1. **Google OAuth 2.0 for Authentication**:
       - Users **MUST** log in using **Google OAuth 2.0** for secure authentication.
       - The authentication **MUST** follow Google's best practices for OAuth security.
    
-   ##2. **Google Sheets API for Cocktail Data Management (Per User)**:
+   2. **Google Sheets API for Cocktail Data Management (Per User)**:
       - Each user **MUST** have their own individual **Google Sheet** to store and manage cocktail details such as the name, ingredients, and instructions.
       - The app **MUST** implement CRUD operations (Create, Read, Update, Delete) synchronized with the user's Google Sheet.
       - The data stored in the Google Sheet **CANNOT** be accessible to other users, ensuring per-account data privacy.
 
-   ##3. **Cocktail Details Management**:
+   3. **Cocktail Details Management**:
       - Authenticated users **MUST** be able to add, edit, delete, and view cocktail details.
       - Data **MUST** be securely stored in the Google Sheet and **SHOULD** be updated in real-time when CRUD operations are performed.
 
-   ##4. **Per-Account Data Segregation**:
+   4. **Per-Account Data Segregation**:
       - Each user **SHOULD** have access only to their own cocktail data, ensuring privacy and data integrity.
       - Data **MUST** be private, and one user **CANNOT** access another user's data under any circumstance.
 
-   ##5. **Mobile App Development Using Flutter**:
+   5. **Mobile App Development Using Flutter**:
       - The app **MUST** be developed using **Flutter** and **MUST** be built to run on Android devices.
       - The use of Flutter widgets and best practices **SHOULD** be implemented for smooth and responsive UI.
 
@@ -75,11 +75,14 @@ Each team member must apply the following topics taught in the course to the pro
    - Invent additional domains if necessary, and document them with strategic design mappings.
    - Show relationships between more than four domains and represent them in a Core Domain Chart.
    - **DDD Diagram***
-     ![DDD Diagram](https://imgur.com/XdZt3eQ.png)
+     ![DDD Diagram]
+(https://imgur.com/XdZt3eQ.png)
    - **DDD Event Diagram***
-     ![DDD Event Diagram](https://imgur.com/mYavfpV.png)
+     ![DDD Event Diagram]
+(https://imgur.com/mYavfpV.png)
    - **DDD Core Domain Chart***
-     ![DDD Core Domain Chart](https://imgur.com/U8NPeLF.png)
+     ![DDD Core Domain Chart]
+(https://imgur.com/U8NPeLF.png)
 
 
 
