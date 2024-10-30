@@ -69,20 +69,158 @@ Each team member must apply the following topics taught in the course to the pro
 
 ---
 ### 4. **System Analysis**
-  - 10 Points from Miro analyse  
+
+#### 1. Document Analysis
+##### Data Structures
+- **Recipe Structure**
+  - Title (string)
+  - Ingredients (array)
+  - Instructions (array)
+  - Photo URL (string)
+  - Categories (array)
+  - Search Tags (array)
+  - Last Modified (timestamp)
+
+- **Google Sheets Structure**
+  - Sheet 1: Recipe Main Data
+    - Column A: Recipe ID
+    - Column B: Title
+    - Column C: Ingredients (JSON)
+    - Column D: Instructions (JSON)
+    - Column E: Photo URL
+    - Column F: Categories
+    - Column G: Search Tags
+    - Column H: Last Modified
+
+#### 2. Process Analysis
+##### Core Processes
+
+1. **Recipe Management**
+   - Create new recipes
+   - Upload and associate photos
+   - Update existing recipes
+   - Delete recipes
+   - Sync with Google Sheets
+
+2. **Search Functionality**
+   - Full-text search
+   - Category filtering
+   - Tag-based search
+   - Sort by various criteria
+
+3. **Data Synchronization**
+   - Auto-sync with Google Sheets
+   - Handle offline/online states
+   - Conflict resolution
+   - Data validation
+
+#### 3. User Analysis
+##### User Types and Needs
+
+1. **Regular Users**
+   - Search for recipes
+   - View recipe details
+   - Filter by categories
+   - Save favorites
+
+2. **Contributors**
+   - Add new recipes
+   - Upload photos
+   - Assign categories
+   - Add search tags
+
+3. **Administrators**
+   - Edit any recipe
+   - Manage categories
+   - Control user access
+   - Maintain data integrity
+
+#### 4. Domain Analysis
+##### Core Domains
+
+1. **Recipe Domain**
+   - Recipe CRUD operations
+   - Recipe metadata management
+   - Recipe validation
+   - Events:
+     * RecipeCreated
+     * RecipeUpdated
+     * RecipeDeleted
+     * RecipeViewed
+
+2. **Storage Domain**
+   - Google Sheets API integration
+   - Data synchronization
+   - Data backup
+   - Events:
+     * DataSynced
+     * SheetUpdated
+     * BackupCreated
+
+3. **Search Domain**
+   - Search indexing
+   - Query processing
+   - Results ranking
+   - Events:
+     * SearchPerformed
+     * ResultsFiltered
+     * ResultsSorted
+
+4. **Media Domain**
+   - Photo upload
+   - Image processing
+   - Storage management
+   - Events:
+     * PhotoUploaded
+     * PhotoProcessed
+     * PhotoDeleted
+
+### Technical Requirements
+
+1. **Frontend**
+   - Responsive web interface
+   - Search functionality
+   - Recipe form with photo upload
+   - Recipe display with photos
+
+2. **Backend**
+   - Google Sheets API integration
+   - Data validation
+   - Error handling
+   - Security measures
+
+3. **Data Storage**
+   - Google Sheets as primary database
+   - Local caching for performance
+   - Photo storage solution
+
+### Implementation Plan
+
+1. **Phase 1: Core Setup**
+   - Basic project structure
+   - Google Sheets API connection
+   - Simple CRUD operations
+
+2. **Phase 2: Features**
+   - Search implementation
+   - Photo upload
+   - Recipe management
+
+3. **Phase 3: Refinement**
+   - UI/UX improvements
+   - Performance optimization
+   - Testing and bug fixes
 
 ### 5. **Domain-Driven Design (DDD)**
    - Invent additional domains if necessary, and document them with strategic design mappings.
    - Show relationships between more than four domains and represent them in a Core Domain Chart.
    - **DDD Diagram***
-     ![DDD Diagram]
-(https://imgur.com/XdZt3eQ.png)
+     ![DDD Diagram](https://imgur.com/XdZt3eQ.png)
    - **DDD Event Diagram***
-     ![DDD Event Diagram]
-(https://imgur.com/mYavfpV.png)
+     ![DDD Event Diagram](https://imgur.com/mYavfpV.png)
    - **DDD Core Domain Chart***
-     ![DDD Core Domain Chart]
-(https://imgur.com/U8NPeLF.png)
+
+     ![DDD Core Domain Chart](https://imgur.com/U8NPeLF.png)
 
 
 
