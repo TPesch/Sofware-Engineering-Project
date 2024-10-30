@@ -211,6 +211,8 @@ Each team member must apply the following topics taught in the course to the pro
    - Performance optimization
    - Testing and bug fixes
 
+---
+
 ### 5. **Domain-Driven Design (DDD)**
    - Invent additional domains if necessary, and document them with strategic design mappings.
    - Show relationships between more than four domains and represent them in a Core Domain Chart.
@@ -222,31 +224,50 @@ Each team member must apply the following topics taught in the course to the pro
 
      ![DDD Core Domain Chart](https://imgur.com/U8NPeLF.png)
 
-
+---
 
 
 ### 6. **Metrics**
    - Include at least **two** non-trivial metrics to measure code quality (e.g., SonarQube).
 
+---
+
 ### 7. **Clean Code Development (CCD)**
    - Provide **five** examples in the code that reflect clean code principles.
    - Include a **CCD Cheat Sheet** with at least **10 points** (e.g., as a PDF).
 
+---
+
 ### 8. **Build Management**
    - Use any build system (Ant, Maven, Gradle, etc.) for build management, documentation generation, and running tests.
+
+---
+
 
 ### 9. **Continuous Delivery**
    - Implement a CI/CD pipeline using tools like Jenkins, GitHub Actions, or GitLab CI. 
    - Include more than two script calls in the build process.
 
+---
+
+
 ### 10. **Unit Tests**
    - Integrate unit tests that are automatically triggered by the build system.
+
+---
+
 
 ### 11. **IDE Proficiency**
    - Use an Integrated Development Environment (IDE) such as **VSCode** or **IntelliJ** and document your favorite shortcuts.
 
+---
+
+
 ### 12. **Domain-Specific Language (DSL)**
    - Create a small DSL demo in your code, even if it doesn’t contribute directly to the main project.
+
+---
+
 
 ### 13. **Functional Programming**
    Demonstrate functional programming principles in your code, including:
