@@ -83,8 +83,6 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   'lib/Images/hake.jpg',
-                  width: 200,
-                  height: 100,
                 ),
                 SizedBox(height: 50),
                 ElevatedButton(
@@ -109,10 +107,10 @@ class LoginScreen extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Image.asset(
-                      //   'lib/images/google_logo.png',
-                      //   height: 24,
-                      // ), broken will fix in future
+                      Image.asset(
+                        'lib/images/google_logo.png',
+                        height: 24,
+                      ),
                       SizedBox(width: 12),
                       Text(
                         'Sign in with Google',
