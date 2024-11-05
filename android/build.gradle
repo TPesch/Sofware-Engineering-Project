@@ -18,6 +18,7 @@ allprojects {
         mavenCentral()
     }
 }
+//apply plugin: 'com.google.gms.google-services'
 
 rootProject.buildDir = '../build'
 subprojects {

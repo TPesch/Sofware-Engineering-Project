@@ -42,6 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-# Api related
-/lib/firebase_options.dart
 
+#Api specific for Android
+lib/firebase_options.dart
