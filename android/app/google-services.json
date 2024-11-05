@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "780709545465",
+    "project_id": "recipeappproject-8bfdc",
+    "storage_bucket": "recipeappproject-8bfdc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780709545465:android:ccfb4c281d76c3f5fa2928",
+        "android_client_info": {
+          "package_name": "com.Tomas.Recipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780709545465-f7jvovvivedp3jn9el837o4qmhk18730.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Tomas.Recipe",
+            "certificate_hash": "9f0655e66508e89cca9b066094e8123307ec0675"
+          }
+        },
+        {
+          "client_id": "780709545465-6vffe6smff3n16i1er2vdc7piq98cdff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJV3D6w9r-qRlBpm2M951JAyraqkGfkhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780709545465-6vffe6smff3n16i1er2vdc7piq98cdff.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780709545465-iijo96qi266qs5ah32lh64idhgpjcica.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cocktailApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
