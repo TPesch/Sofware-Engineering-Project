@@ -223,6 +223,8 @@ Each team member must apply the following topics taught in the course to the pro
    - **DDD Core Domain Chart***
 
      ![DDD Core Domain Chart](https://imgur.com/U8NPeLF.png)
+   - **Miro Link**
+     [Miro Link](https://miro.com/welcomeonboard/aXR5MVI5eTBSMmFXWTRERlk2alVvdHNFeFdvZXBzNEFHZjNWckltaS9xZEk0ZitKWTdDUHlFNWpOM01kL2pxVThia0xZSm4rRi96N2E3UHNhb24zdWt4czV5cEhaRy9QYUViY2ZIS2FIdGJJM1ZpWUZ2TW5mTkp0S1VVSWZtazghZQ==?share_link_id=682601141672)
 
 ---
 
