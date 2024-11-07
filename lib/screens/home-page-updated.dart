@@ -255,6 +255,73 @@ class _RecipeDialogState extends State<RecipeDialog>
         .join('\n');
   }
 
+  Widget _buildImageSection() {
+    return Column(
+      children: [
+        if (currentImageUrl != null && currentImageUrl!.isNotEmpty)
+          Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Container(
+                height: 200,
+                width: double.infinity,
+                margin: EdgeInsets.only(bottom: 16),
+                child: Image.network(
+                  currentImageUrl!,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    color: Colors.grey[200],
+                    child: Icon(
+                      Icons.broken_image,
+                      size: 100,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.close, color: Colors.white),
+                onPressed: () {
+                  setState(() {
+                    currentImageUrl = null;
+                    imageUrlController.clear();
+                  });
+                },
+              ),
+            ],
+          ),
+        ListTile(
+          leading: Icon(Icons.add_a_photo),
+          title: Text('Add Image'),
+          onTap: () async {
+            try {
+              final userId = AuthService().getCurrentUser()?.uid;
+              if (userId != null) {
+                final imageUrl =
+                    await _storageService.pickAndUploadImage(context, userId);
+                if (imageUrl != null && mounted) {
+                  setState(() {
+                    currentImageUrl = imageUrl;
+                    imageUrlController.text = imageUrl;
+                  });
+                }
+              }
+            } catch (e) {
+              if (mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Failed to upload image: ${e.toString()}'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            }
+          },
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -263,6 +330,7 @@ class _RecipeDialogState extends State<RecipeDialog>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            _buildImageSection(),
             // Image preview
             if (currentImageUrl != null && currentImageUrl!.isNotEmpty)
               Container(
@@ -291,7 +359,8 @@ class _RecipeDialogState extends State<RecipeDialog>
                       final userId = AuthService().getCurrentUser()?.uid;
                       if (userId != null) {
                         final imageUrl =
-                            await _storageService.uploadImage(userId);
+                            await _storageService.pickAndUploadImage(
+                                context, userId); // Changed method name
                         if (imageUrl != null && mounted) {
                           setState(() {
                             currentImageUrl = imageUrl;
