@@ -6,6 +6,7 @@ import '../models/recipe_validation.dart';
 import '../services/authentications.dart';
 import '../screens/home-page-updated.dart';
 import '../services/google_sheets_integration.dart';
+import '../services/storage_service.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -212,6 +213,8 @@ class RecipeDialog extends StatefulWidget {
 
 class _RecipeDialogState extends State<RecipeDialog>
     with RecipeValidationMixin {
+  final StorageService _storageService = StorageService();
+
   late TextEditingController nameController;
   late TextEditingController glassController;
   late TextEditingController alcoholController;
@@ -220,8 +223,9 @@ class _RecipeDialogState extends State<RecipeDialog>
   late TextEditingController garnishController;
   late TextEditingController priceController;
   late TextEditingController categoryController;
+  late TextEditingController imageUrlController;
 
-  // Map to store validation errors
+  String? currentImageUrl;
   Map<String, String?> validationErrors = {};
 
   @override
@@ -231,26 +235,24 @@ class _RecipeDialogState extends State<RecipeDialog>
     nameController = TextEditingController(text: recipe?.name ?? '');
     glassController = TextEditingController(text: recipe?.glass ?? '');
     alcoholController = TextEditingController(text: recipe?.mainAlcohol ?? '');
-    ingredientsController =
-        TextEditingController(text: recipe?.ingredients ?? '');
+    ingredientsController = TextEditingController(
+        text: recipe?.ingredients.replaceAll('\n', ', ') ?? '');
     instructionsController =
         TextEditingController(text: recipe?.instructions ?? '');
     garnishController = TextEditingController(text: recipe?.garnish ?? '');
     priceController = TextEditingController(text: recipe?.price ?? '');
     categoryController = TextEditingController(text: recipe?.category ?? '');
+    imageUrlController = TextEditingController(text: recipe?.imageUrl ?? '');
+    currentImageUrl = recipe?.imageUrl;
   }
 
-  @override
-  void dispose() {
-    nameController.dispose();
-    glassController.dispose();
-    alcoholController.dispose();
-    ingredientsController.dispose();
-    instructionsController.dispose();
-    garnishController.dispose();
-    priceController.dispose();
-    categoryController.dispose();
-    super.dispose();
+  String formatIngredients(String rawIngredients) {
+    // Convert comma-separated ingredients to newline format
+    return rawIngredients
+        .split(',')
+        .map((ingredient) => ingredient.trim())
+        .where((ingredient) => ingredient.isNotEmpty)
+        .join('\n');
   }
 
   @override
@@ -261,51 +263,77 @@ class _RecipeDialogState extends State<RecipeDialog>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // Image preview
+            if (currentImageUrl != null && currentImageUrl!.isNotEmpty)
+              Container(
+                height: 200,
+                width: double.infinity,
+                margin: EdgeInsets.only(bottom: 16),
+                child: Image.network(
+                  currentImageUrl!,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Icon(
+                    Icons.broken_image,
+                    size: 100,
+                  ),
+                ),
+              ),
+
+            // Image URL input
+            TextField(
+              controller: imageUrlController,
+              decoration: InputDecoration(
+                labelText: 'Image URL',
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.upload),
+                  onPressed: () async {
+                    try {
+                      final userId = AuthService().getCurrentUser()?.uid;
+                      if (userId != null) {
+                        final imageUrl =
+                            await _storageService.uploadImage(userId);
+                        if (imageUrl != null && mounted) {
+                          setState(() {
+                            currentImageUrl = imageUrl;
+                            imageUrlController.text = imageUrl;
+                          });
+                        }
+                      }
+                    } catch (e) {
+                      if (mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text(
+                                  'Failed to upload image: ${e.toString()}')),
+                        );
+                      }
+                    }
+                  },
+                ),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  currentImageUrl = value;
+                });
+              },
+            ),
+
             TextField(
               controller: nameController,
               decoration: InputDecoration(
                 labelText: 'Name',
                 errorText: validationErrors['name'],
               ),
-              onChanged: (_) => setState(() {
-                validationErrors['name'] =
-                    validateRequired(nameController.text, 'Name');
-              }),
             ),
-            TextField(
-              controller: glassController,
-              decoration: InputDecoration(
-                labelText: 'Glass Type',
-                errorText: validationErrors['glass'],
-              ),
-              onChanged: (_) => setState(() {
-                validationErrors['glass'] =
-                    validateRequired(glassController.text, 'Glass type');
-              }),
-            ),
-            TextField(
-              controller: alcoholController,
-              decoration: InputDecoration(
-                labelText: 'Main Alcohol',
-                errorText: validationErrors['mainAlcohol'],
-              ),
-              onChanged: (_) => setState(() {
-                validationErrors['mainAlcohol'] =
-                    validateRequired(alcoholController.text, 'Main alcohol');
-              }),
-            ),
+
             TextField(
               controller: ingredientsController,
               decoration: InputDecoration(
                 labelText: 'Ingredients',
                 errorText: validationErrors['ingredients'],
-                helperText: 'Format: "2 oz - Vodka" (one per line)',
+                helperText: 'Separate ingredients with commas',
               ),
               maxLines: 3,
-              onChanged: (_) => setState(() {
-                validationErrors['ingredients'] =
-                    validateIngredients(ingredientsController.text);
-              }),
             ),
             TextField(
               controller: instructionsController,
@@ -372,8 +400,8 @@ class _RecipeDialogState extends State<RecipeDialog>
                 name: nameController.text,
                 glass: glassController.text,
                 mainAlcohol: alcoholController.text,
-                imageUrl: '', // Add image handling later
-                ingredients: ingredientsController.text,
+                imageUrl: currentImageUrl ?? '',
+                ingredients: formatIngredients(ingredientsController.text),
                 instructions: instructionsController.text,
                 garnish: garnishController.text,
                 price: priceController.text,
@@ -381,23 +409,6 @@ class _RecipeDialogState extends State<RecipeDialog>
               );
               widget.onSave(recipe);
               Navigator.pop(context);
-            } else {
-              // Show validation errors
-              setState(() {
-                validationErrors = {
-                  'name': validateRequired(nameController.text, 'Name'),
-                  'glass': validateRequired(glassController.text, 'Glass type'),
-                  'mainAlcohol':
-                      validateRequired(alcoholController.text, 'Main alcohol'),
-                  'ingredients':
-                      validateIngredients(ingredientsController.text),
-                  'instructions':
-                      validateInstructions(instructionsController.text),
-                  'price': validatePrice(priceController.text),
-                  'category':
-                      validateRequired(categoryController.text, 'Category'),
-                };
-              });
             }
           },
         ),
@@ -421,11 +432,21 @@ class RecipeDetailsDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (recipe.imageUrl.isNotEmpty)
-              Image.network(
-                recipe.imageUrl,
+              Container(
                 height: 200,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                child: Image.network(
+                  recipe.imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    color: Colors.grey[300],
+                    child: Icon(
+                      Icons.broken_image,
+                      size: 100,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ),
               ),
             SizedBox(height: 16),
             _buildDetailRow('Glass', recipe.glass),
