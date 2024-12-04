@@ -4,8 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart'; // Add this import
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'services/authentications.dart';
-import 'models/recipies.dart';
-import '/services/google_sheets_integration.dart';
 import '../providers/cocktail-provider.dart';
 import '../screens/home-page-updated.dart';
 

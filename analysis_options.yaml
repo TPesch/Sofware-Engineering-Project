@@ -11,21 +11,54 @@ analyzer:
   errors:
     unused_import: ignore
 include: package:flutter_lints/flutter.yaml
+##include: package:lints/recommended.yaml
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # Style and Formatting
+    - always_declare_return_types # Ensure all methods have a return type declared.
+    - annotate_overrides # Require @override annotations where applicable.
+    - avoid_escaping_inner_quotes # Avoid unnecessary escape characters in strings.
+    - avoid_print # Discourage the use of print in production code.
+    - prefer_final_fields # Use final for fields where possible.
+    - prefer_const_constructors # Prefer constructors marked as const when possible.
+    - prefer_const_literals_to_create_immutables # Use const for immutable data structures.
+    - sort_constructors_first # Place constructors before other methods.
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    # Error Prevention
+    - avoid_init_to_null # Avoid initializing variables to null.
+    - avoid_types_as_parameter_names # Prevent confusion by not using types as parameter names.
+    - prefer_typing_uninitialized_variables # Add type annotations to variables.
+
+    # Performance and Optimization
+    - avoid_redundant_argument_values # Avoid specifying arguments with default values explicitly.
+    - avoid_setters_without_getters # Ensure getters accompany setters.
+    - prefer_iterable_whereType # Use whereType instead of manually filtering by type.
+
+    # Readability and Maintainability
+    - avoid_unnecessary_containers # Avoid containers that don't add value.
+    - avoid_unnecessary_setState # Avoid redundant calls to setState in Flutter.
+    - avoid_empty_else # Avoid having empty else blocks.
+    - use_late_for_private_fields_with_initializers # Use late for private fields that have initializers.
+
+    # Naming Conventions
+    - camel_case_types # Use camelCase for class names.
+    - constant_identifier_names # Use UPPER_SNAKE_CASE for constant names.
+    - library_prefixes # Use appropriate prefixes for libraries when importing.
+
+    # Flutter Specific
+    - always_put_required_named_parameters_first # Place required named parameters before optional ones.
+    - prefer_mixin # Prefer mixins over multiple inheritance for Flutter.
+
+    # Null Safety
+    - prefer_null_aware_operators # Use null-aware operators (?.) instead of checks.
+
+    # Testing
+    - avoid_catching_errors # Avoid catching Errors, as they're not recoverable.
+    - test_types_in_equals # Ensure proper type checks in equality comparisons.
+
+    # Miscellaneous
+    - prefer_relative_imports # Prefer relative imports within the same package.
+    - unnecessary_this # Avoid unnecessary use of `this`.
+    - use_function_type_syntax_for_parameters # Use the concise function type syntax.
+

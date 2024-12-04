@@ -263,6 +263,11 @@ Include at least **three** different UML diagrams, artificially enhanced if nece
 
 - Include at least **two** non-trivial metrics to measure code quality (e.g., SonarQube).
 
+- Linter for Dart
+
+- **Linter Output in Dart\***
+  ![Linter Output in Dart](https://imgur.com/jRJ74RS.png)
+
 ---
 
 ### 7. **Clean Code Development (CCD)**
