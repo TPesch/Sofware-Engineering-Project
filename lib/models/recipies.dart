@@ -48,4 +48,43 @@ class CocktailRecipe {
       category: list[8] ?? '',
     );
   }
+
+  /// Parses a recipe from human-readable text
+  factory CocktailRecipe.fromText(String text) {
+    final lines = text.split('\n');
+    final Map<String, String> fields = {};
+
+    for (var line in lines) {
+      final parts = line.split(':');
+      if (parts.length == 2) {
+        fields[parts[0].trim()] = parts[1].trim();
+      }
+    }
+
+    return CocktailRecipe(
+      name: fields['Cocktail'] ?? '',
+      glass: fields['Glass'] ?? '',
+      mainAlcohol: fields['Main Alcohol'] ?? '',
+      imageUrl: fields['Image URL'] ?? '',
+      ingredients: fields['Ingredients'] ?? '',
+      instructions: fields['Instructions'] ?? '',
+      garnish: fields['Garnish'] ?? '',
+      price: fields['Price'] ?? '',
+      category: fields['Category'] ?? '',
+    );
+  }
+
+  @override
+  String toString() {
+    return '''
+Cocktail: $name
+Glass: $glass
+Main Alcohol: $mainAlcohol
+Ingredients: $ingredients
+Instructions: $instructions
+Garnish: $garnish
+Price: $price
+Category: $category
+''';
+  }
 }

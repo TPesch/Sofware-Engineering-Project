@@ -323,6 +323,7 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 - Unit tests are implemented to ensure code quality and functionality.
 - Test cases validate methods like `validatePrice` and `validateRequired` in `recipe_validation.dart`.
 - Test files are located in the `test/` directory.
+- Current issues are that You cannot fully test due to the fact that the applications requires you to login to google account via firebase authentication.
 - Example:
   - [Widget Test](test/widget_test.dart)
 - To run the tests, use:
@@ -332,26 +333,171 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 
 ---
 
-### 11. **IDE Proficiency**
+### IDE Proficiency - VSCode
 
-- Use an Integrated Development Environment (IDE) such as **VSCode** or **IntelliJ** and document your favorite shortcuts.
+#### Key Features Used:
+- **Extensions**: Flutter, Dart, GitLens, Prettier
+- **Integrated Terminal**: Running `flutter run` and Git commands
+- **Debugging**: Setting breakpoints, inspecting variables, and hot-reload
 
----
+#### Favorite Shortcuts:
+- **`Ctrl + P`**: Quick open files
+- **`Ctrl + Shift + F`**: Search across all files
+- **`Ctrl + /`**: Comment/uncomment code
+- **`F5`**: Debugging
+- **`Alt + Shift + F`**: Format document
+- **`Ctrl + .`**: Suggest code fixes for highlighted code errors
+
 
 ### 12. **Domain-Specific Language (DSL)**
 
-- Create a small DSL demo in your code, even if it doesn’t contribute directly to the main project.
+This project includes a small **Domain-Specific Language (DSL)** for managing cocktail recipes. The DSL simplifies the process of defining, parsing, and displaying recipes in a human-readable and structured format.
+
+#### **Key Features**:
+1. **Declarative Recipe Definition**:
+   Define recipes using a clean and simple syntax with the `define` method.
+2. **Human-Readable Input**:
+   Parse recipes from a text-based format into structured objects using the `fromText` factory.
+3. **Readable Output**:
+   Recipes are displayed consistently using the `toString` method.
+
+#### **Example Usage**:
+
+1. **Declarative Recipe Definition**:
+   ```dart
+   final mojito = CocktailRecipe.define(
+     name: 'Mojito',
+     glass: 'Highball',
+     mainAlcohol: 'Rum',
+     ingredients: 'Mint, Lime, Sugar, Rum, Soda',
+     instructions: 'Muddle mint, lime, and sugar. Add rum and top with soda.',
+     garnish: 'Mint sprig',
+     price: '10.00',
+     category: 'Classic',
+   );
+   ```
+
+2. **Parsing Recipes from Text**:
+   Recipes can be provided in a human-readable text format:
+   ```
+   Cocktail: Mojito
+   Glass: Highball
+   Main Alcohol: Rum
+   Ingredients: Mint, Lime, Sugar, Rum, Soda
+   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
+   Garnish: Mint sprig
+   Price: 10.00
+   Category: Classic
+   ```
+   Use the `fromText` factory to parse this input:
+   ```dart
+   final recipeText = '''
+   Cocktail: Mojito
+   Glass: Highball
+   Main Alcohol: Rum
+   Ingredients: Mint, Lime, Sugar, Rum, Soda
+   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
+   Garnish: Mint sprig
+   Price: 10.00
+   Category: Classic
+   '';
+
+   final mojito = CocktailRecipe.fromText(recipeText);
+   print(mojito);
+   ```
+
+3. **Readable Output**:
+   The `toString` method outputs the recipe in a clean, readable format:
+   ```
+   Cocktail: Mojito
+   Glass: Highball
+   Main Alcohol: Rum
+   Ingredients: Mint, Lime, Sugar, Rum, Soda
+   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
+   Garnish: Mint sprig
+   Price: 10.00
+   Category: Classic
+   ```
+
+#### **Why Use This DSL?**
+- **Simplifies Code**: Reduces boilerplate when working with recipes.
+- **Readable and Extensible**: Provides a consistent format and can be expanded for additional functionality.
+
+For the DSL implementation, refer to the [`CocktailRecipe` class`](lib/models/cocktail_recipe.dart).
 
 ---
 
 ### 13. **Functional Programming**
 
-Demonstrate functional programming principles in your code, including:
 
-- Immutable data structures
-- Side-effect-free functions
-- Higher-order functions
-- Use of closures and anonymous functions
+This project demonstrates key principles of functional programming:
+
+### **1. Immutable Data Structures**
+All core data structures, like `CocktailRecipe`, are immutable. Fields are declared `final` to prevent unintended modifications:
+```dart
+class CocktailRecipe {
+  final String name;
+  final String glass;
+  final String mainAlcohol;
+  final String ingredients;
+  final String instructions;
+  final String garnish;
+  final String price;
+  final String category;
+
+  CocktailRecipe({
+    required this.name,
+    required this.glass,
+    required this.mainAlcohol,
+    required this.ingredients,
+    required this.instructions,
+    required this.garnish,
+    required this.price,
+    required this.category,
+  });
+}
+```
+
+---
+
+### **2. Side-Effect-Free Functions**
+Validation methods like `validatePrice` are pure and do not modify external state:
+```dart
+String? validatePrice(String price) {
+  final parsedPrice = double.tryParse(price);
+  if (parsedPrice == null || parsedPrice < 0) {
+    return 'Please enter a valid, non-negative price.';
+  }
+  return null;
+}
+```
+These functions always produce the same result for the same input, ensuring predictability.
+
+---
+
+### **3. Higher-Order Functions**
+Higher-order functions like `.map()` are used to transform lists efficiently:
+```dart
+List<String> capitalizeIngredients(List<String> ingredients) {
+  return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
+}
+```
+This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
+
+---
+
+### **4. Closures and Anonymous Functions**
+Anonymous functions in widget callbacks, like the `onTap` handler below, demonstrate closures capturing context:
+```dart
+onTap: () => print("Cocktail selected: Mojito"),
+```
+Closures allow access to variables from the surrounding context, making the code concise and efficient for interactive elements.
+
+---
+
+### **Conclusion**
+The project adheres to functional programming principles by ensuring immutability, using side-effect-free functions, leveraging higher-order functions for data transformations, and employing closures for efficient, concise logic. These practices make the code more predictable, maintainable, and robust.
+
 
 ---
 
