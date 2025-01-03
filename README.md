@@ -314,7 +314,7 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
   - Builds the release APK for deployment.
 - CI/CD Configuration File: [.github/workflows/ci.yml](.github/workflows/ci.yml)
 - Build Status:
-  ![Build Status](https://github.com/your-repo-name/actions/workflows/ci.yml/badge.svg)
+  ![Build Status](https://github.com/TPesch/Sofware-Engineering-Project/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -336,11 +336,13 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 ### IDE Proficiency - VSCode
 
 #### Key Features Used:
+
 - **Extensions**: Flutter, Dart, GitLens, Prettier
 - **Integrated Terminal**: Running `flutter run` and Git commands
 - **Debugging**: Setting breakpoints, inspecting variables, and hot-reload
 
 #### Favorite Shortcuts:
+
 - **`Ctrl + P`**: Quick open files
 - **`Ctrl + Shift + F`**: Search across all files
 - **`Ctrl + /`**: Comment/uncomment code
@@ -348,12 +350,12 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 - **`Alt + Shift + F`**: Format document
 - **`Ctrl + .`**: Suggest code fixes for highlighted code errors
 
-
 ### 12. **Domain-Specific Language (DSL)**
 
 This project includes a small **Domain-Specific Language (DSL)** for managing cocktail recipes. The DSL simplifies the process of defining, parsing, and displaying recipes in a human-readable and structured format.
 
 #### **Key Features**:
+
 1. **Declarative Recipe Definition**:
    Define recipes using a clean and simple syntax with the `define` method.
 2. **Human-Readable Input**:
@@ -364,6 +366,7 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
 #### **Example Usage**:
 
 1. **Declarative Recipe Definition**:
+
    ```dart
    final mojito = CocktailRecipe.define(
      name: 'Mojito',
@@ -379,6 +382,7 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
 
 2. **Parsing Recipes from Text**:
    Recipes can be provided in a human-readable text format:
+
    ```
    Cocktail: Mojito
    Glass: Highball
@@ -389,7 +393,9 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
    Price: 10.00
    Category: Classic
    ```
+
    Use the `fromText` factory to parse this input:
+
    ```dart
    final recipeText = '''
    Cocktail: Mojito
@@ -420,6 +426,7 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
    ```
 
 #### **Why Use This DSL?**
+
 - **Simplifies Code**: Reduces boilerplate when working with recipes.
 - **Readable and Extensible**: Provides a consistent format and can be expanded for additional functionality.
 
@@ -429,11 +436,12 @@ For the DSL implementation, refer to the [`CocktailRecipe` class`](lib/models/co
 
 ### 13. **Functional Programming**
 
-
 This project demonstrates key principles of functional programming:
 
 ### **1. Immutable Data Structures**
+
 All core data structures, like `CocktailRecipe`, are immutable. Fields are declared `final` to prevent unintended modifications:
+
 ```dart
 class CocktailRecipe {
   final String name;
@@ -461,7 +469,9 @@ class CocktailRecipe {
 ---
 
 ### **2. Side-Effect-Free Functions**
+
 Validation methods like `validatePrice` are pure and do not modify external state:
+
 ```dart
 String? validatePrice(String price) {
   final parsedPrice = double.tryParse(price);
@@ -471,33 +481,40 @@ String? validatePrice(String price) {
   return null;
 }
 ```
+
 These functions always produce the same result for the same input, ensuring predictability.
 
 ---
 
 ### **3. Higher-Order Functions**
+
 Higher-order functions like `.map()` are used to transform lists efficiently:
+
 ```dart
 List<String> capitalizeIngredients(List<String> ingredients) {
   return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
 }
 ```
+
 This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
 
 ---
 
 ### **4. Closures and Anonymous Functions**
+
 Anonymous functions in widget callbacks, like the `onTap` handler below, demonstrate closures capturing context:
+
 ```dart
 onTap: () => print("Cocktail selected: Mojito"),
 ```
+
 Closures allow access to variables from the surrounding context, making the code concise and efficient for interactive elements.
 
 ---
 
 ### **Conclusion**
-The project adheres to functional programming principles by ensuring immutability, using side-effect-free functions, leveraging higher-order functions for data transformations, and employing closures for efficient, concise logic. These practices make the code more predictable, maintainable, and robust.
 
+The project adheres to functional programming principles by ensuring immutability, using side-effect-free functions, leveraging higher-order functions for data transformations, and employing closures for efficient, concise logic. These practices make the code more predictable, maintainable, and robust.
 
 ---
 
