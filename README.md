@@ -270,29 +270,65 @@ Include at least **three** different UML diagrams, artificially enhanced if nece
 
 ---
 
-### 7. **Clean Code Development (CCD)**
+### Clean Code Development (CCD)
 
-- Provide **five** examples in the code that reflect clean code principles.
-- Include a **CCD Cheat Sheet** with at least **10 points** (e.g., as a PDF).
+#### Examples of Clean Code Principles in the Project:
 
----
+1. **Single Responsibility Principle**:
+
+   - The `AuthService` class in `authentications.dart` handles only authentication-related tasks such as signing in, signing out, and managing the authentication state.
+
+2. **Readable and Descriptive Naming**:
+
+   - Methods and variables like `initializeSpreadsheet`, `pickAndUploadImage`, and `signInWithGoogle` clearly indicate their functionality.
+
+3. **Encapsulation**:
+
+   - Private methods like `_setLoading` in `CocktailProvider` manage internal state, ensuring encapsulation.
+
+4. **Don't Repeat Yourself (DRY)**:
+
+   - The `GoogleSheetsService` class uses reusable methods like `_getAuthHeaders` to reduce redundancy.
+
+5. **Reusability with Mixins**:
+   - The `RecipeValidationMixin` centralizes validation logic for recipes, ensuring consistent and reusable code.
+
+#### CCD Cheat Sheet
+
+![CCD Principles](https://external-preview.redd.it/LqnfN_7TaXROOzrJBzXq-tk7mDsu7kHK9LdkfDGgNfI.jpg?auto=webp&s=66f8d5ca711e4a95df33745d4ab50563f659fa58)
+
+For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 
 ### 8. **Build Management**
 
-- Use any build system (Ant, Maven, Gradle, etc.) for build management, documentation generation, and running tests.
+- The project utilizes Gradle to build and manage the project. It is included in Dart.
 
 ---
 
-### 9. **Continuous Delivery**
+### 9. **Continuous Delivery (CI/CD)**
 
-- Implement a CI/CD pipeline using tools like Jenkins, GitHub Actions, or GitLab CI.
-- Include more than two script calls in the build process.
+- A CI/CD pipeline is set up using GitHub Actions to automate build, test, and deployment processes.
+- The pipeline:
+  - Installs dependencies.
+  - Runs all tests.
+  - Builds the release APK for deployment.
+- CI/CD Configuration File: [.github/workflows/ci.yml](.github/workflows/ci.yml)
+- Build Status:
+  ![Build Status](https://github.com/your-repo-name/actions/workflows/ci.yml/badge.svg)
 
 ---
 
 ### 10. **Unit Tests**
 
-- Integrate unit tests that are automatically triggered by the build system.
+- Unit tests are implemented to ensure code quality and functionality.
+- Test cases validate methods like `validatePrice` and `validateRequired` in `recipe_validation.dart`.
+- Test files are located in the `test/` directory.
+- Example:
+  - [Widget Test](test/widget_test.dart)
+- To run the tests, use:
+  ```bash
+  flutter test
+  ```
 
 ---
 
