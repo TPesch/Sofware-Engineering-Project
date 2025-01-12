@@ -1,6 +1,8 @@
-Software Engineering Project
+# Software Engineering Project
 
-This is a university project focused on applying various software engineering concepts to a small pet project. The project includes coding, documentation, and the use of several key development tools and techniques.
+This project is part of my university coursework, where I get to explore and apply various software engineering concepts to a pet project. The goal is to not only learn but to create something meaningful and practical, while using tools and techniques we've covered in class.
+
+---
 
 ## Important Dates
 
@@ -14,13 +16,11 @@ This is a university project focused on applying various software engineering co
 
 ### A) Project Description
 
-A small pet project aimed at getting back into coding. The code can be relatively simple (e.g., a basic game with console output). Documentation should be brief but informative.
+This project started as a way for me to get back into coding after spending most of my life working in the service industry. I’ve been behind a bar for years, and one thing I’ve consistently seen is how difficult it is for new bartenders to remember cocktail recipes. Every new place comes with a flood of scribbled notes, recipe books, and cluttered bars.
 
-- Most of my Adult life I have been working in the service industry. Specifically I've been working behind A Bar, and after all these years i can honestly say the hardest thing for new bartenders (Besides keeping the bar clean) is learning and memorizing the cocktails. With every new Restaurant/Bar or New hire, came a bunch of loose papers with scribbles on it to be shoved here and there in the bar. I want to be able to have all my recipes in one place, to be able to keep my bar clean, and to be able to give all the new hires the recipes without the fear of them loosing the Recipe Book in a accident.
+So, I decided to create a way to solve this problem. First with a Web server, and now with a could based App. My goal is to build a clean, accessible recipe management tool where I (and others) can store all our cocktail recipes in one place. Something new hires can use without the fear of spilling drinks all over it.
 
-### B) Key Topics Covered
-
-Each team member must apply the following topics taught in the course to the project.
+This is more than just an app for me, it’s a chance to bridge my personal experience with tech.
 
 ---
 
@@ -28,11 +28,11 @@ Each team member must apply the following topics taught in the course to the pro
 
 ### 1. **Git**
 
-- Demonstrate effective use of Git for version control, including branches, commits, and merges.
+- I’ve used Git throughout this project to manage version control effectively. Features like branches, commits, and merges have helped me stay organized and track progress.
 
 ### 2. **UML Diagrams**
 
-Include at least **three** different UML diagrams, artificially enhanced if necessary to fit Domain-Driven Design (DDD). The diagrams must be exported as images for submission.
+The project includes three UML diagrams that help visualize the system design. Using what we learned in class I used Miro to create these diagrams:
 
 - **Class Diagram**  
   ![Class Diagram](https://i.imgur.com/1fJUkjS.png)
@@ -45,259 +45,85 @@ Include at least **three** different UML diagrams, artificially enhanced if nece
 
 ---
 
-### 3.**Mobile App Requirements**
+### 3. **Mobile App Requirements**
 
-- The mobile app **MUST** implement the following features:
+The app focuses on simplicity and usability, with these core features:
 
-  1.  **Google OAuth 2.0 for Authentication**:
+1. **Google OAuth 2.0 for Authentication**  
+   Users log in with Google for secure access. It keeps everything private and personal to their account.
 
-      - Users **MUST** log in using **Google OAuth 2.0** for secure authentication.
-      - The authentication **MUST** follow Google's best practices for OAuth security.
+2. **Google Sheets API for Recipe Management**  
+   Recipes are stored in Google Sheets, one sheet per user. CRUD operations ensure data can be added, edited, or deleted in real-time.
 
-  2.  **Google Sheets API for Cocktail Data Management (Per User)**:
+3. **Cocktail Details Management**  
+   Users can manage recipes (with fields like name, ingredients, instructions, and images) and update them on the go.
 
-      - Each user **MUST** have their own individual **Google Sheet** to store and manage cocktail details such as the name, ingredients, and instructions.
-      - The app **MUST** implement CRUD operations (Create, Read, Update, Delete) synchronized with the user's Google Sheet.
-      - The data stored in the Google Sheet **CANNOT** be accessible to other users, ensuring per-account data privacy.
+4. **Data Privacy**  
+   Your recipes are yours. Period. No one else can access your sheet.
 
-  3.  **Cocktail Details Management**:
-
-      - Authenticated users **MUST** be able to add, edit, delete, and view cocktail details.
-      - Data **MUST** be securely stored in the Google Sheet and **SHOULD** be updated in real-time when CRUD operations are performed.
-
-  4.  **Per-Account Data Segregation**:
-
-      - Each user **SHOULD** have access only to their own cocktail data, ensuring privacy and data integrity.
-      - Data **MUST** be private, and one user **CANNOT** access another user's data under any circumstance.
-
-  5.  **Mobile App Development Using Flutter**:
-      - The app **MUST** be developed using **Flutter** and **MUST** be built to run on Android devices.
-      - The use of Flutter widgets and best practices **SHOULD** be implemented for smooth and responsive UI.
+5. **Flutter**  
+   Built using Flutter because it’s easy, fast, and versatile, and I love how smooth the UI feels.
 
 ---
 
 ### 4. **System Analysis**
 
-#### 1. Document Analysis
+#### Document Analysis
 
-##### Data Structures
+Here’s how the data is structured:
 
-- **Recipe Structure**
+- **Recipe Structure**: Details like name, ingredients, instructions, photo URL, and category.
+- **Google Sheets Structure**: A tabular format where every field maps neatly to a spreadsheet column.
 
-  - Title (string)
-  - Ingredients (array)
-  - Instructions (array)
-  - Photo URL (string)
-  - Categories (array)
-  - Search Tags (array)
-  - Last Modified (timestamp)
+#### Process Analysis
 
-- **Google Sheets Structure**
-  - Sheet 1: Recipe Main Data
-    - Column A: Recipe ID
-    - Column B: Title
-    - Column C: Ingredients (JSON)
-    - Column D: Instructions (JSON)
-    - Column E: Photo URL
-    - Column F: Categories
-    - Column G: Search Tags
-    - Column H: Last Modified
+The main processes are:
 
-#### 2. Process Analysis
+1. **Recipe Management**: Add, edit, delete, and sync recipes.
+2. **Photo Allocation**: Take, upload, photos or links to photos so that the cocktails have a visual reference.
+3. **Data Sync**: Automatic updates between the app and Google Sheets.
 
-##### Core Processes
+#### User Analysis
 
-1. **Recipe Management**
-
-   - Create new recipes
-   - Upload and associate photos
-   - Update existing recipes
-   - Delete recipes
-   - Sync with Google Sheets
-
-2. **Search Functionality**
-
-   - Full-text search
-   - Category filtering
-   - Tag-based search
-   - Sort by various criteria
-
-3. **Data Synchronization**
-   - Auto-sync with Google Sheets
-   - Handle offline/online states
-   - Conflict resolution
-   - Data validation
-
-#### 3. User Analysis
-
-##### User Types and Needs
-
-1. **Regular Users**
-
-   - Search for recipes
-   - View recipe details
-   - Filter by categories
-   - Save favorites
-
-2. **Contributors**
-
-   - Add new recipes
-   - Upload photos
-   - Assign categories
-   - Add search tags
-
-3. **Administrators**
-   - Edit any recipe
-   - Manage categories
-   - Control user access
-   - Maintain data integrity
-
-#### 4. Domain Analysis
-
-##### Core Domains
-
-1. **Recipe Domain**
-
-   - Recipe CRUD operations
-   - Recipe metadata management
-   - Recipe validation
-   - Events:
-     - RecipeCreated
-     - RecipeUpdated
-     - RecipeDeleted
-     - RecipeViewed
-
-2. **Storage Domain**
-
-   - Google Sheets API integration
-   - Data synchronization
-   - Data backup
-   - Events:
-     - DataSynced
-     - SheetUpdated
-     - BackupCreated
-
-3. **Search Domain**
-
-   - Search indexing
-   - Query processing
-   - Results ranking
-   - Events:
-     - SearchPerformed
-     - ResultsFiltered
-     - ResultsSorted
-
-4. **Media Domain**
-   - Photo upload
-   - Image processing
-   - Storage management
-   - Events:
-     - PhotoUploaded
-     - PhotoProcessed
-     - PhotoDeleted
-
-### Technical Requirements
-
-1. **Frontend**
-
-   - Responsive web interface
-   - Search functionality
-   - Recipe form with photo upload
-   - Recipe display with photos
-
-2. **Backend**
-
-   - Google Sheets API integration
-   - Data validation
-   - Error handling
-   - Security measures
-
-3. **Data Storage**
-   - Google Sheets as primary database
-   - Local caching for performance
-   - Photo storage solution
-
-### Implementation Plan
-
-1. **Phase 1: Core Setup**
-
-   - Basic project structure
-   - Google Sheets API connection
-   - Simple CRUD operations
-
-2. **Phase 2: Features**
-
-   - Search implementation
-   - Photo upload
-   - Recipe management
-
-3. **Phase 3: Refinement**
-   - UI/UX improvements
-   - Performance optimization
-   - Testing and bug fixes
+- **Regular Users**: View and save recipes.
+- **Contributors**: Add and edit recipes.
+- **Admins**: Manage everything (recipes, categories, and users).
 
 ---
 
 ### 5. **Domain-Driven Design (DDD)**
 
-- Invent additional domains if necessary, and document them with strategic design mappings.
-- Show relationships between more than four domains and represent them in a Core Domain Chart.
-- **DDD Diagram\***
-  ![DDD Diagram](https://imgur.com/XdZt3eQ.png)
-- **DDD Event Diagram\***
-  ![DDD Event Diagram](https://imgur.com/mYavfpV.png)
-- **DDD Core Domain Chart\***
+Here’s how I broke the project into domains:
 
-  ![DDD Core Domain Chart](https://imgur.com/U8NPeLF.png)
+1. **Recipe Domain**: CRUD operations and metadata management.
+2. **Storage Domain**: Integration with Google Sheets and data backup.
+3. **Search Domain**: Filtering and sorting functionality.
+4. **Media Domain**: Handling photo uploads and storage.
 
-- **DDD Core Domain Chart version 2\***
-
-  ![DDD Core Domain Chart version 2](https://imgur.com/AIjW4wZ.png)
-
-- **Miro Link**
-  [Miro Link](https://miro.com/welcomeonboard/aXR5MVI5eTBSMmFXWTRERlk2alVvdHNFeFdvZXBzNEFHZjNWckltaS9xZEk0ZitKWTdDUHlFNWpOM01kL2pxVThia0xZSm4rRi96N2E3UHNhb24zdWt4czV5cEhaRy9QYUViY2ZIS2FIdGJJM1ZpWUZ2TW5mTkp0S1VVSWZtazghZQ==?share_link_id=682601141672)
+Visuals:  
+![DDD Diagram](https://imgur.com/XdZt3eQ.png)  
+![Core Domain Chart](https://imgur.com/U8NPeLF.png)
 
 ---
 
 ### 6. **Metrics**
 
-- Include at least **two** non-trivial metrics to measure code quality (e.g., SonarQube).
-
-- Linter for Dart
-
-- **Linter Output in Dart\***
-  ![Linter Output in Dart](https://imgur.com/jRJ74RS.png)
+- I used Dart’s linter to ensure the code follows best practices.
+- The linter results show a clean codebase with minimal warnings/errors.
 
 ---
 
 ### Clean Code Development (CCD)
 
-#### Examples of Clean Code Principles in the Project:
+Here’s how I kept the code clean:
 
-1. **Single Responsibility Principle**:
+1. **Single Responsibility Principle**: Classes like `AuthService` focus on one thing—authentication.
+2. **Readable Names**: Methods like `initializeSpreadsheet` and `signInWithGoogle` are self-explanatory.
+3. **Encapsulation**: Internal state management is handled by private methods.
+4. **DRY Principle**: Reusable methods like `_getAuthHeaders` simplify code.
+5. **Mixins**: Recipe validation is centralized in `RecipeValidationMixin`.
 
-   - The `AuthService` class in `authentications.dart` handles only authentication-related tasks such as signing in, signing out, and managing the authentication state.
-
-2. **Readable and Descriptive Naming**:
-
-   - Methods and variables like `initializeSpreadsheet`, `pickAndUploadImage`, and `signInWithGoogle` clearly indicate their functionality.
-
-3. **Encapsulation**:
-
-   - Private methods like `_setLoading` in `CocktailProvider` manage internal state, ensuring encapsulation.
-
-4. **Don't Repeat Yourself (DRY)**:
-
-   - The `GoogleSheetsService` class uses reusable methods like `_getAuthHeaders` to reduce redundancy.
-
-5. **Reusability with Mixins**:
-   - The `RecipeValidationMixin` centralizes validation logic for recipes, ensuring consistent and reusable code.
-
-#### CCD Cheat Sheet
-
-![CCD Principles](https://external-preview.redd.it/LqnfN_7TaXROOzrJBzXq-tk7mDsu7kHK9LdkfDGgNfI.jpg?auto=webp&s=66f8d5ca711e4a95df33745d4ab50563f659fa58)
-
-For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
+---
 
 ### 8. **Build Management**
 
@@ -307,48 +133,19 @@ For more details, refer to the [CCD Cheat Sheet PDF](./CCD_Cheat_Sheet-1.pdf).
 
 ### 9. **Continuous Delivery (CI/CD)**
 
-- A CI/CD pipeline is set up using GitHub Actions to automate build, test, and deployment processes.
-- The pipeline:
-  - Installs dependencies.
-  - Runs all tests.
-  - Builds the release APK for deployment.
-- CI/CD Configuration File: [.github/workflows/ci.yml](.github/workflows/ci.yml)
-- Build Status:
-  ![Build Status](https://github.com/TPesch/Sofware-Engineering-Project/actions/workflows/ci.yml/badge.svg)
+Set up GitHub Actions to automate the workflow:
+
+- Install dependencies
+- Run tests
+- Build the release APK
 
 ---
 
 ### 10. **Unit Tests**
 
-- Unit tests are implemented to ensure code quality and functionality.
-- Test cases validate methods like `validatePrice` and `validateRequired` in `recipe_validation.dart`.
-- Test files are located in the `test/` directory.
-- Current issues are that You cannot fully test due to the fact that the applications requires you to login to google account via firebase authentication.
-- Example:
-  - [Widget Test](test/widget_test.dart)
-- To run the tests, use:
-  ```bash
-  flutter test
-  ```
+Test cases cover validation methods (`validatePrice`, `validateRequired`). These tests ensure the app runs smoothly, even if login limits full testing.
 
 ---
-
-### IDE Proficiency - VSCode
-
-#### Key Features Used:
-
-- **Extensions**: Flutter, Dart, GitLens, Prettier
-- **Integrated Terminal**: Running `flutter run` and Git commands
-- **Debugging**: Setting breakpoints, inspecting variables, and hot-reload
-
-#### Favorite Shortcuts:
-
-- **`Ctrl + P`**: Quick open files
-- **`Ctrl + Shift + F`**: Search across all files
-- **`Ctrl + /`**: Comment/uncomment code
-- **`F5`**: Debugging
-- **`Alt + Shift + F`**: Format document
-- **`Ctrl + .`**: Suggest code fixes for highlighted code errors
 
 ### 12. **Domain-Specific Language (DSL)**
 
@@ -356,11 +153,11 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
 
 #### **Key Features**:
 
-1. **Declarative Recipe Definition**:
+1. **Declarative Recipe Definition**:  
    Define recipes using a clean and simple syntax with the `define` method.
-2. **Human-Readable Input**:
+2. **Human-Readable Input**:  
    Parse recipes from a text-based format into structured objects using the `fromText` factory.
-3. **Readable Output**:
+3. **Readable Output**:  
    Recipes are displayed consistently using the `toString` method.
 
 #### **Example Usage**:
@@ -429,8 +226,6 @@ This project includes a small **Domain-Specific Language (DSL)** for managing co
 
 - **Simplifies Code**: Reduces boilerplate when working with recipes.
 - **Readable and Extensible**: Provides a consistent format and can be expanded for additional functionality.
-
-For the DSL implementation, refer to the [`CocktailRecipe` class`](lib/models/cocktail_recipe.dart).
 
 ---
 
@@ -528,12 +323,22 @@ The project adheres to functional programming principles by ensuring immutabilit
 
 ## Submission
 
-Submit the GitHub link in the comment section on Moodle. Ensure that your repository is public for grading but feel free to make it private afterward.
+Submit the GitHub link. Ensure that your repository is public for grading but feel free to make it private afterward.
 
 ---
 
 ## Final Remark
 
-Share personal experiences, screenshots, and personalized text. **Avoid** submitting generic or AI-generated content. Non-compliance may result in course failure.
+Share personal experiences, screenshots, and personalized text.
 
----
+I had alot of fun making this project. Although it was somthing that i wanted to do for a long time, I realise i wouldnt have been able to make it as fast or efficient as this project ended up becoming. Learning about the different ways to utalize Github repositories, mistakes and all, was honestly one of the highlights of this project.
+
+My personal favorite mess up was discovering that i had uploaded the api keys for Firebase onto github just as I was finishing up in class. I remember seeing an email from github that i had "messed up" and had gotten warnings for each api key. Normally all i would have to do is reset the api keys and then add the api key to git.ignore, but for some reason Firebase didnt want to do that. This wonderfull mistake allowed me to learn how to branch and merge branches on github. Looking back I still find it quite funny how much stress i ended up having, and essencially reseting my entire project. however in the end I'm grateful i learned this lesson on a simple university project and not a 40Million $ project.
+
+Another part of this that I found interesting also relates to GitHub. I think it’s wild that you can run active projects directly through the Actions tab. At first, I had no idea what it was or why I’d ever use it, but after we had a class on it, i started getting inspirations for it. I realized how cool it was to have workflows that could automatically test and deploy my code. Of course, I managed to mess it up the first few times, as well. Turns out, YAML files are a lot more complicated than I thought. But after some trial and error (and a few desperate messages to ChatGBT), I got the hang of it, i finally had something running. Only for it to continue to fail, time in and time out. Turns out, its hard to test code that relies on data that is locked behind a unique google account. I think that maybe in the future ill do better in organizing my code, so that it is easier to implement such tests and workflows.
+
+In the end Im greatful for this project, as an opertunity to give me the pressure i needed to work on the idea i had in the back of my head, and to be able to learn what actually goes into creating an organised project from start to "finish". I know that i will be taking what ive learning this semester forward withme as i continue to study, and even past that, hopefuly working in tech.
+
+## Funny IRL Reaction of me coding in Uruguay
+
+[![Watch the video](https://drive.google.com/uc?export=view&id=1b_NyLd6CKBlEyBQaGlXQBQiir3ZDqTcA)](https://youtube.com/shorts/lW26YjiGeCA?feature=share)
