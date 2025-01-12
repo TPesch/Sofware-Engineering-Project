@@ -339,6 +339,6 @@ Another part of this that I found interesting also relates to GitHub. I think it
 
 In the end Im greatful for this project, as an opertunity to give me the pressure i needed to work on the idea i had in the back of my head, and to be able to learn what actually goes into creating an organised project from start to "finish". I know that i will be taking what ive learning this semester forward withme as i continue to study, and even past that, hopefuly working in tech.
 
-## Funny IRL Reaction of me coding in Uruguay
+## Funny IRL Video Reaction of me coding in Uruguay (Click to see the video)
 
 [![Watch the video](https://drive.google.com/uc?export=view&id=1b_NyLd6CKBlEyBQaGlXQBQiir3ZDqTcA)](https://youtube.com/shorts/lW26YjiGeCA?feature=share)
