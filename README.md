@@ -266,13 +266,13 @@ This change reduces unnecessary operations like `map` and simplifies the logic i
 
 - The project utilizes Gradle to build and manage the project. Key files include:
 
-- [`build.gradle`](./build.gradle): The root-level Gradle build file that configures repositories and dependencies shared across the project.
+- [`build.gradle`](./android/build.gradle): The root-level Gradle build file that configures repositories and dependencies shared across the project.
 
-- [`settings.gradle`](./settings.gradle): Configures Gradle modules and their inclusion in the project.
+- [`settings.gradle`](./android/settings.gradle): Configures Gradle modules and their inclusion in the project.
 
-- [`app/build.gradle`](./app/build.gradle): The module-level Gradle build file for the app, containing specific configurations like dependencies, build types, and product flavors.
+- [`app/build.gradle`](./android/app/build.gradle): The module-level Gradle build file for the app, containing specific configurations like dependencies, build types, and product flavors.
 
-- [`gradle.properties`](./gradle.properties): Contains project-level properties like JVM arguments and AndroidX settings.
+- [`gradle.properties`](./android/gradle.properties): Contains project-level properties like JVM arguments and AndroidX settings.
 
 ### 10. show me your pipeline using e.g. Jenkins, GitHub Actions, GitLab CI, etc. E.g. you can also use Jenkins Pipelining or BlueOcean, etc. But at least insert more than 2 script calls as done in the lecture! (e.g. also call Ant or Gradle or something else).
 
