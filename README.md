@@ -166,18 +166,18 @@ As part of the development process, I found and improved two areas of the code w
 
 **Original Code:**
 
-The `signOut` method in `authentications.dart` had repetitive error-handling logic. This worked but wansnt reusable and consistant, making it harder to maintain.
+The `signOut` method in [`authentications.dart`](./lib/services/authentications.dart) had repetitive error-handling logic. This worked but wasn't reusable and consistent, making it harder to maintain.
 
 ```dart
 Future<void> signOut() async {
-try {
-await  Future.wait([
-_auth.signOut(),
-_googleSignIn.signOut(),
-]);
-} catch (e) {
-print('Error signing out: $e');
-}
+  try {
+    await Future.wait([
+      _auth.signOut(),
+      _googleSignIn.signOut(),
+    ]);
+  } catch (e) {
+    print('Error signing out: $e');
+  }
 }
 ```
 
@@ -217,7 +217,7 @@ This change centralizes the error-handling logic into a single method, reducing 
 
 **Original Code:**
 
-The `formatIngredients` method in `home-page-updated.dart` was designed to clean and format a list of ingredients. However, it looked tacky and hard to read, So I Used the linting suggestion from Dart Anyalyser to simplify the redundant operations in Example 2.
+The `formatIngredients` method in [`home-page-updated.dart`](./lib/screens/home-page-updated.dart) was designed to clean and format a list of ingredients. However, it looked tacky and hard to read, so I used the linting suggestion from Dart Analyzer to simplify the redundant operations in Example 2.
 
 ```dart
 String  formatIngredients(String rawIngredients) {
@@ -248,7 +248,7 @@ This change reduces unnecessary operations like `map` and simplifies the logic i
 
 ---
 
-### **How These Changes Improved the Code**
+#### **How These Changes Improved the Code**
 
 1.  **Centralized Error Handling:**
 

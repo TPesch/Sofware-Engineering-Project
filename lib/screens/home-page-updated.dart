@@ -264,12 +264,19 @@ class _RecipeDialogState extends State<RecipeDialog>
     currentImageUrl = recipe?.imageUrl;
   }
 
+// Old code
+  // String formatIngredients(String rawIngredients) {
+  //   // Convert comma-separated ingredients to newline format
+  //   return rawIngredients
+  //       .split(',')
+  //       .map((ingredient) => ingredient.trim())
+  //       .where((ingredient) => ingredient.isNotEmpty)
+  //       .join('\n');
+  // }
   String formatIngredients(String rawIngredients) {
-    // Convert comma-separated ingredients to newline format
     return rawIngredients
         .split(',')
-        .map((ingredient) => ingredient.trim())
-        .where((ingredient) => ingredient.isNotEmpty)
+        .where((i) => i.trim().isNotEmpty)
         .join('\n');
   }
 
