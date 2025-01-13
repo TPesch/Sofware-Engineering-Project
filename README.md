@@ -389,7 +389,7 @@ return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
 }
 ```
 
-## This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
+This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
 
 #### **D. Closures and Anonymous Functions**
 
