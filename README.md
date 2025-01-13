@@ -52,7 +52,7 @@ The project includes three UML diagrams that help visualize the system design. U
 
 ### 3. **Mobile App Requirements**
 
-#### Simple Tool
+#### Simple Tool Trello
 
 - **Requirments at start**
 
@@ -62,13 +62,20 @@ The project includes three UML diagrams that help visualize the system design. U
 
 - [Cocktail Recipe App Requirements - Trello Board](https://trello.com/invite/b/67852abf8551da1b8f59c8d9/ATTIf900b65a11b7a0a33f84290b7fedf8fbAF81C2E0/cocktail-recipe-app-requirements)
 
-#### Professional Tool
+#### Professional Tool Jira
+
+- **Requirments at start**
+
+![Cocktail Recipe App Requirements](https://imgur.com/pzE8iI6.png)
+
+**Requirments Currently**
+
+- [Cocktail Recipe App Requirements - Jira Board](https://tpesch.atlassian.net/jira/core/projects/MP/board?atlOrigin=eyJpIjoiZDFmYWI0Y2EzNDExNDM0Mjg2MjJkMmQ5ZDk4NzQyOWUiLCJwIjoiaiJ9)
 
 ### 4. **System Analysis**
 
-
-
 #### **Checklist for Analysis:**
+
     Problem Definition
     Target Audience
     Unique Selling Proposition (USP)
@@ -89,8 +96,7 @@ The project includes three UML diagrams that help visualize the system design. U
 
 You can find the detailed project analysis checklist in the following PDF document:
 
-[Project Analysis Checklist](Project-Analysis-Checklist.pdf) 
----
+## [Project Analysis Checklist](Project-Analysis-Checklist.pdf)
 
 ### 5. **Domain-Driven Design (DDD)**
 
