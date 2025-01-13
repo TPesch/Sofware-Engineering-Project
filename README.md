@@ -165,27 +165,16 @@ As part of the development process, I found and improved two areas of the code w
 The `signOut` method in `authentications.dart` had repetitive error-handling logic. This worked but wansnt reusable and consistant, making it harder to maintain.
 
 ```dart
-
 Future<void> signOut() async {
-
 try {
-
 await  Future.wait([
-
 _auth.signOut(),
-
 _googleSignIn.signOut(),
-
 ]);
-
 } catch (e) {
-
 print('Error signing out: $e');
-
 }
-
 }
-
 ```
 
 **Refactored Code:**
@@ -193,45 +182,25 @@ print('Error signing out: $e');
 By highlighting the error-handling block in Example 1 and used the Extract Method in Visual studio i was able to generate th helper function. `_handleError` This method can be reused multiple times in the class, making the code cleaner and more consistent.
 
 ```dart
-
 void  _handleError(BuildContext? context, String message, dynamic error) {
-
 print('$message: $error');
-
 if (context != null) {
-
 ScaffoldMessenger.of(context).showSnackBar(
-
 SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors.red),
-
 );
-
 }
-
 }
-
-
 
 Future<void> signOut() async {
-
 try {
-
 await  Future.wait([
-
 _auth.signOut(),
-
 _googleSignIn.signOut(),
-
 ]);
-
 } catch (e) {
-
 _handleError(null, 'Error signing out', e);
-
 }
-
 }
-
 ```
 
 **Why I Refactored:**
@@ -247,20 +216,15 @@ This change centralizes the error-handling logic into a single method, reducing 
 The `formatIngredients` method in `home-page-updated.dart` was designed to clean and format a list of ingredients. However, it looked tacky and hard to read, So I Used the linting suggestion from Dart Anyalyser to simplify the redundant operations in Example 2.
 
 ```dart
-
 String  formatIngredients(String rawIngredients) {
-
 return rawIngredients
-
 .split(',')
-
 .map((ingredient) => ingredient.trim())
-
 .where((ingredient) => ingredient.isNotEmpty)
-
 .join('\n');
-
 }
+
+
 
 ```
 
@@ -269,13 +233,9 @@ return rawIngredients
 I simplified the method by combining operations and eliminating unnecessary steps. (Thowing this into ChatGbt Had helped in orgnising this bit of code)
 
 ```dart
-
 String  formatIngredients(String rawIngredients) {
-
 return rawIngredients.split(',').where((i) => i.trim().isNotEmpty).join('\n');
-
 }
-
 ```
 
 **Why I Refactored:**
@@ -336,7 +296,29 @@ You can find the related test files here:
 
 - [`widget_test.dart`](./test/widget_test.dart): Ensures proper functionality of widgets.
 
-### 12. Use a good IDE and get fluent with it: e.g. VSCode, IntelliJ. What are your favourite key shortcuts?!
+### 12. Use a good IDE and get fluent with it: e.g. VSCode, IntelliJ. What are your favourite key shortcuts?!
+
+#### Key Features Used:
+
+- **Extensions**: Flutter, Dart, GitLens, Prettier
+
+- **Integrated Terminal**: Running `flutter run` and Git commands
+
+- **Debugging**: Setting breakpoints, inspecting variables, and hot-reload
+
+#### Favorite Shortcuts:
+
+- **`Ctrl + P`**: Quick open files
+
+- **`Ctrl + Shift + F`**: Search across all files
+
+- **`Ctrl + /`**: Comment/uncomment code
+
+- **`F5`**: Debugging
+
+- **`Alt + Shift + F`**: Format document
+
+- **`Ctrl + .`**: Suggest code fixes for highlighted code errors
 
 ### 13. AI Coding: Set Up an AI-coding environment on your computer like ZED, Aider, free Cursor / Windsurf programs, etc. Show your steps and personal experiences!
 
@@ -351,43 +333,24 @@ All core data structures, like `CocktailRecipe`, are immutable. Fields are decla
 ```dart
 
 class  CocktailRecipe {
-
 final  String name;
-
 final  String glass;
-
 final  String mainAlcohol;
-
 final  String ingredients;
-
 final  String instructions;
-
 final  String garnish;
-
 final  String price;
-
 final  String category;
 
-
-
 CocktailRecipe({
-
 required  this.name,
-
 required  this.glass,
-
 required  this.mainAlcohol,
-
 required  this.ingredients,
-
 required  this.instructions,
-
 required  this.garnish,
-
 required  this.price,
-
 required  this.category,
-
 });
 
 }
@@ -403,17 +366,11 @@ Validation methods like `validatePrice` are pure and do not modify external stat
 ```dart
 
 String? validatePrice(String price) {
-
 final parsedPrice = double.tryParse(price);
-
 if (parsedPrice == null || parsedPrice < 0) {
-
 return  'Please enter a valid, non-negative price.';
-
 }
-
 return  null;
-
 }
 
 ```
@@ -427,27 +384,19 @@ These functions always produce the same result for the same input, ensuring pred
 Higher-order functions like `.map()` are used to transform lists efficiently:
 
 ```dart
-
 List<String> capitalizeIngredients(List<String> ingredients) {
-
 return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
-
 }
-
 ```
 
-This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
-
----
+## This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
 
 #### **D. Closures and Anonymous Functions**
 
 Anonymous functions in widget callbacks, like the `onTap` handler below, demonstrate closures capturing context:
 
 ```dart
-
 onTap: () => print("Cocktail selected: Mojito"),
-
 ```
 
 Closures allow access to variables from the surrounding context, making the code concise and efficient for interactive elements.
