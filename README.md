@@ -66,32 +66,30 @@ The project includes three UML diagrams that help visualize the system design. U
 
 ### 4. **System Analysis**
 
+
+
+#### **Checklist for Analysis:**
+    Problem Definition
+    Target Audience
+    Unique Selling Proposition (USP)
+    Competitor Analysis
+    Core Features
+    Monetization Strategy
+    Technical Feasibility
+    User Experience (UX) Design
+    Data Privacy and Security
+    Scalability
+    Market Validation
+    Development Timeline
+    Risks and Challenges
+    Innovation Potential
+    Future Expansion
+
 #### Document Analysis
 
-Here’s how the data is structured:
+You can find the detailed project analysis checklist in the following PDF document:
 
-- **Recipe Structure**: Details like name, ingredients, instructions, photo URL, and category.
-
-- **Google Sheets Structure**: A tabular format where every field maps neatly to a spreadsheet column.
-
-#### Process Analysis
-
-The main processes are:
-
-1.  **Recipe Management**: Add, edit, delete, and sync recipes.
-
-2.  **Photo Allocation**: Take, upload, photos or links to photos so that the cocktails have a visual reference.
-
-3.  **Data Sync**: Automatic updates between the app and Google Sheets.
-
-#### User Analysis
-
-- **Regular Users**: View and save recipes.
-
-- **Contributors**: Add and edit recipes.
-
-- **Admins**: Manage everything (recipes, categories, and users).
-
+[Project Analysis Checklist](Project-Analysis-Checklist.pdf) 
 ---
 
 ### 5. **Domain-Driven Design (DDD)**
