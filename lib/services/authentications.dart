@@ -62,6 +62,7 @@ class AuthService {
       return null;
     }
   }
+
 // old code
 // Future<void> signOut() async {
 //     try {
@@ -73,25 +74,27 @@ class AuthService {
 //       print('Error signing out: $e');
 //     }
 //   }
+  void _handleError(BuildContext? context, String message, dynamic error) {
+    print('$message: $error');
+    if (context != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('$message: ${error.toString()}'),
+            backgroundColor: Colors.red),
+      );
+    }
+  }
 
-void  _handleError(BuildContext? context, String message, dynamic error) {
-print('$message: $error');
-if (context != null) {
-ScaffoldMessenger.of(context).showSnackBar(
-SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors.red),
-);
-}
-
-Future<void> signOut() async {
-try {
-await  Future.wait([
-_auth.signOut(),
-_googleSignIn.signOut(),
-]);
-} catch (e) {
-_handleError(null, 'Error signing out', e);
-}
-}
+  Future<void> signOut() async {
+    try {
+      await Future.wait([
+        _auth.signOut(),
+        _googleSignIn.signOut(),
+      ]);
+    } catch (e) {
+      _handleError(null, 'Error signing out', e);
+    }
+  }
 
   User? getCurrentUser() {
     return _auth.currentUser;
