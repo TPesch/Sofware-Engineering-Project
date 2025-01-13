@@ -62,14 +62,6 @@ class AuthService {
       return null;
     }
   }
-
-void  _handleError(BuildContext? context, String message, dynamic error) {
-print('$message: $error');
-if (context != null) {
-ScaffoldMessenger.of(context).showSnackBar(
-SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors.red),
-);
-}
 // old code
 // Future<void> signOut() async {
 //     try {
@@ -81,6 +73,14 @@ SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors
 //       print('Error signing out: $e');
 //     }
 //   }
+
+void  _handleError(BuildContext? context, String message, dynamic error) {
+print('$message: $error');
+if (context != null) {
+ScaffoldMessenger.of(context).showSnackBar(
+SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors.red),
+);
+}
 
 Future<void> signOut() async {
 try {
