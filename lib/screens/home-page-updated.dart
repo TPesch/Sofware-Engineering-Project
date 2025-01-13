@@ -15,6 +15,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
+
   @override
   void initState() {
     super.initState();
@@ -30,7 +33,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: TextField(
+          controller: _searchController,
+          decoration: InputDecoration(
+            hintText: 'Search...',
+            border: InputBorder.none,
+          ),
+          onChanged: (query) {
+            setState(() {
+              _searchQuery = query;
+            });
+          },
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
@@ -67,16 +81,22 @@ class _MyHomePageState extends State<MyHomePage> {
             return Center(child: CircularProgressIndicator());
           }
 
-          if (provider.recipes.isEmpty) {
+          final filteredRecipes = provider.recipes.where((recipe) {
+            return recipe.name
+                .toLowerCase()
+                .contains(_searchQuery.toLowerCase());
+          }).toList();
+
+          if (filteredRecipes.isEmpty) {
             return Center(
-              child: Text('No recipes yet. Add your first cocktail!'),
+              child: Text('No recipes found.'),
             );
           }
 
           return ListView.builder(
-            itemCount: provider.recipes.length,
+            itemCount: filteredRecipes.length,
             itemBuilder: (context, index) {
-              final recipe = provider.recipes[index];
+              final recipe = filteredRecipes[index];
               return RecipeCard(
                 recipe: recipe,
                 index: index,
