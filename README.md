@@ -144,15 +144,15 @@ Linter Screenshots through the course of the project:
 
 Here’s how I kept the code clean:
 
-1.  **Single Responsibility Principle**: Classes like [`AuthService`](./authentications.dart) focus on one thing—authentication.
+1.  **Single Responsibility Principle**: Classes like [`AuthService`](./lib/services/authentications.dart) focus on one thing—authentication.
 
-2.  **Readable Names**: Methods like [`initializeSpreadsheet`](./cocktail-provider.dart) and [`signInWithGoogle`](./authentications.dart) are self-explanatory.
+2.  **Readable Names**: Methods like [`initializeSpreadsheet`](./lib/providers/cocktail-provider.dart) and [`signInWithGoogle`](./lib/services/authentications.dart) are self-explanatory.
 
-3.  **Encapsulation**: Internal state management is handled by private methods within classes like [`StorageService`](./storage_service.dart).
+3.  **Encapsulation**: Internal state management is handled by private methods within classes like [`StorageService`](./lib/services/storage_service.dart).
 
-4.  **DRY Principle**: Reusable methods like [`_getAuthHeaders`](./google_sheets_integration.dart) simplify code.
+4.  **DRY Principle**: Reusable methods like [`_getAuthHeaders`](./lib/services/google_sheets_integration.dart) simplify code.
 
-5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./recipe_validation.dart).
+5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./lib/mixins/recipe_validation.dart).
 
 ### 8. **REFACTORING**: Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved! Again: do not send me pure AI work!
 
