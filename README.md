@@ -152,7 +152,7 @@ Here’s how I kept the code clean:
 
 4.  **DRY Principle**: Reusable methods like [`_getAuthHeaders`](./lib/services/google_sheets_integration.dart) simplify code.
 
-5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./lib/mixins/recipe_validation.dart).
+5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./lib/models/recipe_validation.dart).
 
 ### 8. **REFACTORING**: Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved! Again: do not send me pure AI work!
 
@@ -323,16 +323,19 @@ You can find the related test files here:
 ### 13. AI Coding: Set Up an AI-coding environment on your computer like ZED, Aider, free Cursor / Windsurf programs, etc. Show your steps and personal experiences!
 
 #### **Tools Used**
+
 I chose **GitHub Copilot** as my AI coding assistant because of its seamless integration with Visual Studio Code. It helps me write code faster by suggesting snippets, refactorings, and patterns in real time.
 
 #### **Personal Experience**
+
 Setting up Copilot was easy, and it immediately started assisting with my project. I used it to:
+
 - Create a search bar for filtering cocktail recipes.
 - Learn better Dart coding patterns by reviewing its suggestions.
 
 #### **Example: Creating a Search Bar**
-[See AI Coding Examples](#15-set-up-a-running-ai-coding-environment-prove-it-by-coding-something-iteratively)
 
+[See AI Coding Examples](#15-set-up-a-running-ai-coding-environment-prove-it-by-coding-something-iteratively)
 
 ### 14. **Functional Programming**
 
@@ -415,7 +418,6 @@ Closures allow access to variables from the surrounding context, making the code
 
 ---
 
-
 ### 15. Set up a running AI Coding environment! Prove it by “coding” something iteratively
 
 ![Ai coding part 1](https://imgur.com/bk6qZ0E.png)
@@ -423,6 +425,7 @@ Closures allow access to variables from the surrounding context, making the code
 ![Ai coding part 3](https://imgur.com/yEp8YCb.png)
 
 Honestly i am impressed how fast I was able to implement a search function to the app, with just the help of Copilot. This was somthing that i was putting off due to my little understanding behind how to implement it in dart. But now i feel like i should have been using Copilot much sooner!
+
 ### **Conclusion**
 
 The project adheres to functional programming principles by ensuring immutability, using side-effect-free functions, leveraging higher-order functions for data transformations, and employing closures for efficient, concise logic. These practices make the code more predictable, maintainable, and robust.
