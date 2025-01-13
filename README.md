@@ -6,9 +6,11 @@ This project is part of my university coursework, where I get to explore and app
 
 ## Important Dates
 
-1. **22nd Oct**: Name, Project, and GitHub link (**5 Points**)
-2. **1st Dec**: First Deliverable with substantial content (**15 Points**)
-3. **20th Jan**: Final GitHub submission with all tasks completed
+1.  **22nd Oct**: Name, Project, and GitHub link (**5 Points**)
+
+2.  **1st Dec**: First Deliverable with substantial content (**15 Points**)
+
+3.  **20th Jan**: Final GitHub submission with all tasks completed
 
 ---
 
@@ -34,37 +36,33 @@ This is more than just an app for me, it’s a chance to bridge my personal expe
 
 The project includes three UML diagrams that help visualize the system design. Using what we learned in class I used Miro to create these diagrams:
 
-- **Class Diagram**  
-  ![Class Diagram](https://i.imgur.com/1fJUkjS.png)
+- **Class Diagram**
 
-- **Use Case Diagram**  
-  ![Use Case Diagram](https://i.imgur.com/mlQ6zBV.png)
+![Class Diagram](https://i.imgur.com/1fJUkjS.png)
 
-- **Activity Diagram**  
-  ![Activity Diagram](https://i.imgur.com/DdcNVZy.png)
+- **Use Case Diagram**
+
+![Use Case Diagram](https://i.imgur.com/mlQ6zBV.png)
+
+- **Activity Diagram**
+
+![Activity Diagram](https://i.imgur.com/DdcNVZy.png)
 
 ---
 
 ### 3. **Mobile App Requirements**
 
-The app focuses on simplicity and usability, with these core features:
+#### Simple Tool
 
-1. **Google OAuth 2.0 for Authentication**  
-   Users log in with Google for secure access. It keeps everything private and personal to their account.
+- **Requirments at start**
 
-2. **Google Sheets API for Recipe Management**  
-   Recipes are stored in Google Sheets, one sheet per user. CRUD operations ensure data can be added, edited, or deleted in real-time.
+![Cocktail Recipe App Requirements](https://imgur.com/1M1c9Ue.png)
 
-3. **Cocktail Details Management**  
-   Users can manage recipes (with fields like name, ingredients, instructions, and images) and update them on the go.
+**Requirments Currently**
 
-4. **Data Privacy**  
-   Your recipes are yours. Period. No one else can access your sheet.
+- [Cocktail Recipe App Requirements - Trello Board](https://trello.com/invite/b/67852abf8551da1b8f59c8d9/ATTIf900b65a11b7a0a33f84290b7fedf8fbAF81C2E0/cocktail-recipe-app-requirements)
 
-5. **Flutter**  
-   Built using Flutter because it’s easy, fast, and versatile, and I love how smooth the UI feels.
-
----
+#### Professional Tool
 
 ### 4. **System Analysis**
 
@@ -73,20 +71,25 @@ The app focuses on simplicity and usability, with these core features:
 Here’s how the data is structured:
 
 - **Recipe Structure**: Details like name, ingredients, instructions, photo URL, and category.
+
 - **Google Sheets Structure**: A tabular format where every field maps neatly to a spreadsheet column.
 
 #### Process Analysis
 
 The main processes are:
 
-1. **Recipe Management**: Add, edit, delete, and sync recipes.
-2. **Photo Allocation**: Take, upload, photos or links to photos so that the cocktails have a visual reference.
-3. **Data Sync**: Automatic updates between the app and Google Sheets.
+1.  **Recipe Management**: Add, edit, delete, and sync recipes.
+
+2.  **Photo Allocation**: Take, upload, photos or links to photos so that the cocktails have a visual reference.
+
+3.  **Data Sync**: Automatic updates between the app and Google Sheets.
 
 #### User Analysis
 
 - **Regular Users**: View and save recipes.
+
 - **Contributors**: Add and edit recipes.
+
 - **Admins**: Manage everything (recipes, categories, and users).
 
 ---
@@ -95,13 +98,28 @@ The main processes are:
 
 Here’s how I broke the project into domains:
 
-1. **Recipe Domain**: CRUD operations and metadata management.
-2. **Storage Domain**: Integration with Google Sheets and data backup.
-3. **Search Domain**: Filtering and sorting functionality.
-4. **Media Domain**: Handling photo uploads and storage.
+1.  **Recipe Domain**: CRUD operations and metadata management.
 
-Visuals:  
-![DDD Diagram](https://imgur.com/XdZt3eQ.png)  
+2.  **Storage Domain**: Integration with Google Sheets and data backup.
+
+3.  **Search Domain**: Filtering and sorting functionality.
+
+4.  **Media Domain**: Handling photo uploads and storage.
+
+Visuals:
+
+![DDD Diagram](https://imgur.com/XdZt3eQ.png)
+
+DDD Diagrams:
+
+![DDD Diagram V1](https://imgur.com/wVkKUtF.png)
+
+![DDD Diagram V2](https://imgur.com/tlznXHB.png)
+
+![DDD Diagram V3](https://imgur.com/5tAFayU.png)
+
+Core Domain Chart:
+
 ![Core Domain Chart](https://imgur.com/U8NPeLF.png)
 
 ---
@@ -109,203 +127,334 @@ Visuals:
 ### 6. **Metrics**
 
 - I used Dart’s linter to ensure the code follows best practices.
+
 - The linter results show a clean codebase with minimal warnings/errors.
+
+Linter Screenshots through the course of the project:
+
+![Linter Sc V1](https://imgur.com/G5I4RdH.png)
+
+![Linter Sc V2](https://imgur.com/Ouepxto.png)
+
+![Linter Sc V3](https://imgur.com/prqdkDD.png)
 
 ---
 
-### Clean Code Development (CCD)
+### 7. **Clean Code Development (CCD)**
 
 Here’s how I kept the code clean:
 
-1. **Single Responsibility Principle**: Classes like `AuthService` focus on one thing—authentication.
-2. **Readable Names**: Methods like `initializeSpreadsheet` and `signInWithGoogle` are self-explanatory.
-3. **Encapsulation**: Internal state management is handled by private methods.
-4. **DRY Principle**: Reusable methods like `_getAuthHeaders` simplify code.
-5. **Mixins**: Recipe validation is centralized in `RecipeValidationMixin`.
+1.  **Single Responsibility Principle**: Classes like [`AuthService`](./authentications.dart) focus on one thing—authentication.
+
+2.  **Readable Names**: Methods like [`initializeSpreadsheet`](./cocktail-provider.dart) and [`signInWithGoogle`](./authentications.dart) are self-explanatory.
+
+3.  **Encapsulation**: Internal state management is handled by private methods within classes like [`StorageService`](./storage_service.dart).
+
+4.  **DRY Principle**: Reusable methods like [`_getAuthHeaders`](./google_sheets_integration.dart) simplify code.
+
+5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./recipe_validation.dart).
+
+### 8. **REFACTORING**: Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved! Again: do not send me pure AI work!
+
+As part of the development process, I found and improved two areas of the code where refactoring was necessary. Below are two examples, including the original and refactored versions, along with explanations of the changes and their benefits.
+
+#### **Example 1: Centralizing Error Handling in Authentication**
+
+**Original Code:**
+
+The `signOut` method in `authentications.dart` had repetitive error-handling logic. This worked but wansnt reusable and consistant, making it harder to maintain.
+
+```dart
+
+Future<void> signOut() async {
+
+try {
+
+await  Future.wait([
+
+_auth.signOut(),
+
+_googleSignIn.signOut(),
+
+]);
+
+} catch (e) {
+
+print('Error signing out: $e');
+
+}
+
+}
+
+```
+
+**Refactored Code:**
+
+By highlighting the error-handling block in Example 1 and used the Extract Method in Visual studio i was able to generate th helper function. `_handleError` This method can be reused multiple times in the class, making the code cleaner and more consistent.
+
+```dart
+
+void  _handleError(BuildContext? context, String message, dynamic error) {
+
+print('$message: $error');
+
+if (context != null) {
+
+ScaffoldMessenger.of(context).showSnackBar(
+
+SnackBar(content: Text('$message: ${error.toString()}'), backgroundColor: Colors.red),
+
+);
+
+}
+
+}
+
+
+
+Future<void> signOut() async {
+
+try {
+
+await  Future.wait([
+
+_auth.signOut(),
+
+_googleSignIn.signOut(),
+
+]);
+
+} catch (e) {
+
+_handleError(null, 'Error signing out', e);
+
+}
+
+}
+
+```
+
+**Why I Refactored:**
+
+This change centralizes the error-handling logic into a single method, reducing redundancy and improving readability. If other methods require error handling in the future, I can now reuse `_handleError`.
 
 ---
 
-### 8. **Build Management**
+#### **Example 2: Simplifying Ingredient Formatting in Recipe Dialog**
 
-- The project utilizes Gradle to build and manage the project. It is included in Dart.
+**Original Code:**
+
+The `formatIngredients` method in `home-page-updated.dart` was designed to clean and format a list of ingredients. However, it looked tacky and hard to read, So I Used the linting suggestion from Dart Anyalyser to simplify the redundant operations in Example 2.
+
+```dart
+
+String  formatIngredients(String rawIngredients) {
+
+return rawIngredients
+
+.split(',')
+
+.map((ingredient) => ingredient.trim())
+
+.where((ingredient) => ingredient.isNotEmpty)
+
+.join('\n');
+
+}
+
+```
+
+**Refactored Code:**
+
+I simplified the method by combining operations and eliminating unnecessary steps. (Thowing this into ChatGbt Had helped in orgnising this bit of code)
+
+```dart
+
+String  formatIngredients(String rawIngredients) {
+
+return rawIngredients.split(',').where((i) => i.trim().isNotEmpty).join('\n');
+
+}
+
+```
+
+**Why I Refactored:**
+
+This change reduces unnecessary operations like `map` and simplifies the logic into a more concise form. The code is now easier to read and slightly faster, as fewer operations are performed.
 
 ---
 
-### 9. **Continuous Delivery (CI/CD)**
+### **How These Changes Improved the Code**
+
+1.  **Centralized Error Handling:**
+
+- It reduces code duplication.
+
+- As well as ensures consistent error reporting across the code.
+
+- Finally it improves maintainability as error handling can now be reused.
+
+2.  **Simplified Ingredient Formatting:**
+
+- Reduces complexity by eliminating redundant operations.
+
+- This improves readability and performance.
+
+- As well as ensures that the method is easier to understand for future developers.
+
+### 9. **Build Management**
+
+- The project utilizes Gradle to build and manage the project. Key files include:
+
+- [`build.gradle`](./build.gradle): The root-level Gradle build file that configures repositories and dependencies shared across the project.
+
+- [`settings.gradle`](./settings.gradle): Configures Gradle modules and their inclusion in the project.
+
+- [`app/build.gradle`](./app/build.gradle): The module-level Gradle build file for the app, containing specific configurations like dependencies, build types, and product flavors.
+
+- [`gradle.properties`](./gradle.properties): Contains project-level properties like JVM arguments and AndroidX settings.
+
+### 10. show me your pipeline using e.g. Jenkins, GitHub Actions, GitLab CI, etc. E.g. you can also use Jenkins Pipelining or BlueOcean, etc. But at least insert more than 2 script calls as done in the lecture! (e.g. also call Ant or Gradle or something else).
 
 Set up GitHub Actions to automate the workflow:
 
 - Install dependencies
+
 - Run tests
+
 - Build the release APK
 
----
+You can view the GitHub Actions workflow configuration [here](https://github.com/TPesch/Sofware-Engineering-Project/actions/workflows/ci.yml).
 
-### 10. **Unit Tests**
+### 11.Integrate some nice UNIT TESTS in your Code to be integrated into the Build!
 
-Test cases cover validation methods (`validatePrice`, `validateRequired`). These tests ensure the app runs smoothly, even if login limits full testing.
+Test cases cover validation methods ([`validatePrice`](./lib/models/recipe_validation.dart), [`validateRequired`](./lib/models/recipe_validation.dart)). These tests ensure the app runs smoothly, even if login limits full testing.
 
----
+You can find the related test files here:
 
-### 12. **Domain-Specific Language (DSL)**
+- [`recipe_validation_test.dart`](./test/recipe_validation_test.dart): Contains unit tests for recipe validation methods.
 
-This project includes a small **Domain-Specific Language (DSL)** for managing cocktail recipes. The DSL simplifies the process of defining, parsing, and displaying recipes in a human-readable and structured format.
+- [`widget_test.dart`](./test/widget_test.dart): Ensures proper functionality of widgets.
 
-#### **Key Features**:
+### 12. Use a good IDE and get fluent with it: e.g. VSCode, IntelliJ. What are your favourite key shortcuts?!
 
-1. **Declarative Recipe Definition**:  
-   Define recipes using a clean and simple syntax with the `define` method.
-2. **Human-Readable Input**:  
-   Parse recipes from a text-based format into structured objects using the `fromText` factory.
-3. **Readable Output**:  
-   Recipes are displayed consistently using the `toString` method.
+### 13. AI Coding: Set Up an AI-coding environment on your computer like ZED, Aider, free Cursor / Windsurf programs, etc. Show your steps and personal experiences!
 
-#### **Example Usage**:
-
-1. **Declarative Recipe Definition**:
-
-   ```dart
-   final mojito = CocktailRecipe.define(
-     name: 'Mojito',
-     glass: 'Highball',
-     mainAlcohol: 'Rum',
-     ingredients: 'Mint, Lime, Sugar, Rum, Soda',
-     instructions: 'Muddle mint, lime, and sugar. Add rum and top with soda.',
-     garnish: 'Mint sprig',
-     price: '10.00',
-     category: 'Classic',
-   );
-   ```
-
-2. **Parsing Recipes from Text**:
-   Recipes can be provided in a human-readable text format:
-
-   ```
-   Cocktail: Mojito
-   Glass: Highball
-   Main Alcohol: Rum
-   Ingredients: Mint, Lime, Sugar, Rum, Soda
-   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
-   Garnish: Mint sprig
-   Price: 10.00
-   Category: Classic
-   ```
-
-   Use the `fromText` factory to parse this input:
-
-   ```dart
-   final recipeText = '''
-   Cocktail: Mojito
-   Glass: Highball
-   Main Alcohol: Rum
-   Ingredients: Mint, Lime, Sugar, Rum, Soda
-   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
-   Garnish: Mint sprig
-   Price: 10.00
-   Category: Classic
-   '';
-
-   final mojito = CocktailRecipe.fromText(recipeText);
-   print(mojito);
-   ```
-
-3. **Readable Output**:
-   The `toString` method outputs the recipe in a clean, readable format:
-   ```
-   Cocktail: Mojito
-   Glass: Highball
-   Main Alcohol: Rum
-   Ingredients: Mint, Lime, Sugar, Rum, Soda
-   Instructions: Muddle mint, lime, and sugar. Add rum and top with soda.
-   Garnish: Mint sprig
-   Price: 10.00
-   Category: Classic
-   ```
-
-#### **Why Use This DSL?**
-
-- **Simplifies Code**: Reduces boilerplate when working with recipes.
-- **Readable and Extensible**: Provides a consistent format and can be expanded for additional functionality.
-
----
-
-### 13. **Functional Programming**
+### 14. **Functional Programming**
 
 This project demonstrates key principles of functional programming:
 
-### **1. Immutable Data Structures**
+#### **A. Immutable Data Structures**
 
 All core data structures, like `CocktailRecipe`, are immutable. Fields are declared `final` to prevent unintended modifications:
 
 ```dart
-class CocktailRecipe {
-  final String name;
-  final String glass;
-  final String mainAlcohol;
-  final String ingredients;
-  final String instructions;
-  final String garnish;
-  final String price;
-  final String category;
 
-  CocktailRecipe({
-    required this.name,
-    required this.glass,
-    required this.mainAlcohol,
-    required this.ingredients,
-    required this.instructions,
-    required this.garnish,
-    required this.price,
-    required this.category,
-  });
+class  CocktailRecipe {
+
+final  String name;
+
+final  String glass;
+
+final  String mainAlcohol;
+
+final  String ingredients;
+
+final  String instructions;
+
+final  String garnish;
+
+final  String price;
+
+final  String category;
+
+
+
+CocktailRecipe({
+
+required  this.name,
+
+required  this.glass,
+
+required  this.mainAlcohol,
+
+required  this.ingredients,
+
+required  this.instructions,
+
+required  this.garnish,
+
+required  this.price,
+
+required  this.category,
+
+});
+
 }
+
 ```
 
 ---
 
-### **2. Side-Effect-Free Functions**
+#### **B. Side-Effect-Free Functions**
 
 Validation methods like `validatePrice` are pure and do not modify external state:
 
 ```dart
+
 String? validatePrice(String price) {
-  final parsedPrice = double.tryParse(price);
-  if (parsedPrice == null || parsedPrice < 0) {
-    return 'Please enter a valid, non-negative price.';
-  }
-  return null;
+
+final parsedPrice = double.tryParse(price);
+
+if (parsedPrice == null || parsedPrice < 0) {
+
+return  'Please enter a valid, non-negative price.';
+
 }
+
+return  null;
+
+}
+
 ```
 
 These functions always produce the same result for the same input, ensuring predictability.
 
 ---
 
-### **3. Higher-Order Functions**
+#### **C. Higher-Order Functions**
 
 Higher-order functions like `.map()` are used to transform lists efficiently:
 
 ```dart
+
 List<String> capitalizeIngredients(List<String> ingredients) {
-  return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
+
+return ingredients.map((ingredient) => ingredient.toUpperCase()).toList();
+
 }
+
 ```
 
 This demonstrates how functions can operate on collections and return new transformed data without modifying the original input.
 
 ---
 
-### **4. Closures and Anonymous Functions**
+#### **D. Closures and Anonymous Functions**
 
 Anonymous functions in widget callbacks, like the `onTap` handler below, demonstrate closures capturing context:
 
 ```dart
+
 onTap: () => print("Cocktail selected: Mojito"),
+
 ```
 
 Closures allow access to variables from the surrounding context, making the code concise and efficient for interactive elements.
 
 ---
+
+### 15. Set up a running AI Coding environment! Prove it by “coding” something iteratively.
 
 ### **Conclusion**
 
@@ -316,7 +465,9 @@ The project adheres to functional programming principles by ensuring immutabilit
 ## Final Deliverables
 
 - Complete documentation must be available publicly on GitHub or another platform.
+
 - A **checklist** for each of the **13 points** mentioned above, linking to the relevant sections of the project (e.g., code, diagrams, CCD files, or test files).
+
 - 1-2 paragraphs explaining your solution for each point, with links to appropriate code sections.
 
 ---

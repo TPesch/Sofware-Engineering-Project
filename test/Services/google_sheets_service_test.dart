@@ -1,14 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import '../../lib/models/recipies.dart';
+import 'package:NewFolderName/models/recipies.dart';
 import 'google_sheets_service_test.mocks.dart';
 import 'test_cocktail_provider.dart'; // Import the test subclass
 import 'package:mockito/annotations.dart';
-import '../../lib/services/google_sheets_integration.dart';
-import '../../lib/services/authentications.dart';
+import 'package:NewFolderName/services/google_sheets_integration.dart';
+import 'package:NewFolderName/services/authentications.dart';
 
 @GenerateMocks([GoogleSheetsService, AuthService])
-
 void main() {
   late MockGoogleSheetsService mockGoogleSheetsService;
   late MockAuthService mockAuthService;

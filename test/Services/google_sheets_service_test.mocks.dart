@@ -5,9 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:cocktail_app/models/recipies.dart' as _i4;
-import 'package:cocktail_app/services/authentications.dart' as _i5;
-import 'package:cocktail_app/services/google_sheets_integration.dart' as _i2;
+import 'package:NewFolderName/models/recipies.dart' as _i4;
+import 'package:NewFolderName/services/authentications.dart' as _i5;
+import 'package:NewFolderName/services/google_sheets_integration.dart' as _i2;
 import 'package:firebase_auth/firebase_auth.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 

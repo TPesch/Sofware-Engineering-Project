@@ -1,6 +1,8 @@
-import '../../lib/providers/cocktail-provider.dart';
-import '../../lib/services/google_sheets_integration.dart';
-import '../../lib/services/authentications.dart';
+// ignore_for_file: override_on_non_overriding_member
+
+import 'package:NewFolderName/providers/cocktail-provider.dart';
+import 'package:NewFolderName/Services/google_sheets_integration.dart';
+import 'package:NewFolderName/services/authentications.dart';
 
 class TestCocktailProvider extends CocktailProvider {
   final GoogleSheetsService testSheetsService;

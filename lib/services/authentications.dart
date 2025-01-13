@@ -1,4 +1,4 @@
-import 'package:cocktail_app/screens/home-page-updated.dart';
+import '../screens/home-page-updated.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,7 +27,8 @@ class AuthService {
       if (googleUser == null) return null;
 
       // Obtain auth details from request
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
 
       // Create new credential for Firebase
       final OAuthCredential credential = GoogleAuthProvider.credential(
@@ -36,7 +37,7 @@ class AuthService {
       );
 
       // Sign in to Firebase with the Google credential
-      final UserCredential userCredential = 
+      final UserCredential userCredential =
           await _auth.signInWithCredential(credential);
 
       return userCredential;
@@ -48,9 +49,10 @@ class AuthService {
 
   Future<String?> getGoogleAccessToken() async {
     try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signInSilently();
+      final GoogleSignInAccount? googleUser =
+          await _googleSignIn.signInSilently();
       if (googleUser != null) {
-        final GoogleSignInAuthentication googleAuth = 
+        final GoogleSignInAuthentication googleAuth =
             await googleUser.authentication;
         return googleAuth.accessToken;
       }
@@ -76,6 +78,7 @@ class AuthService {
     return _auth.currentUser;
   }
 }
+
 class LoginScreen extends StatelessWidget {
   final AuthService _authService = AuthService();
 
@@ -148,7 +151,7 @@ class LoginScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.g_mobiledata,
                           size: 24,
