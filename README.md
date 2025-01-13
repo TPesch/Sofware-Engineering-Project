@@ -405,6 +405,11 @@ Closures allow access to variables from the surrounding context, making the code
 
 ### 15. Set up a running AI Coding environment! Prove it by “coding” something iteratively.
 
+![Ai coding part 1](https://imgur.com/bk6qZ0E.png)
+![Ai coding part 2](https://imgur.com/fqAfK2o.png)
+![Ai coding part 3](https://imgur.com/yEp8YCb.png)
+
+Honestly i am impressed how fast I was able to implement a search function to the app, with just the help of Copilot. This was somthing that i was putting off due to my little understanding behind how to implement it in dart. But now i feel like i should have been using Copilot much sooner!
 ### **Conclusion**
 
 The project adheres to functional programming principles by ensuring immutability, using side-effect-free functions, leveraging higher-order functions for data transformations, and employing closures for efficient, concise logic. These practices make the code more predictable, maintainable, and robust.
