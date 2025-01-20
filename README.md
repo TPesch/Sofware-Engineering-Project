@@ -96,7 +96,7 @@ The project includes three UML diagrams that help visualize the system design. U
 
 You can find the detailed project analysis checklist in the following PDF document:
 
-## [Project Analysis Checklist](Project-Analysis-Checklist.pdf)
+#### [Project Analysis Checklist](Project-Analysis-Checklist.pdf)
 
 ### 5. **Domain-Driven Design (DDD)**
 
@@ -157,6 +157,8 @@ Here’s how I kept the code clean:
 4.  **DRY Principle**: Reusable methods like [`_getAuthHeaders`](./lib/services/google_sheets_integration.dart) simplify code.
 
 5.  **Mixins**: Recipe validation is centralized in [`RecipeValidationMixin`](./lib/models/recipe_validation.dart).
+
+#### [CLEAN CODE CHEAT SHEET](CCD_Cheat_Sheet-1.pdf)
 
 ### 8. **REFACTORING**: Show me two (non-trivial) Refactoring Examples of your code! Showing the original content and the refactored code! Explain what happened, why and how it has improved! Again: do not send me pure AI work!
 
